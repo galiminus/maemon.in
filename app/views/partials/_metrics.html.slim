@@ -1,0 +1,30 @@
+script type="text/ng-template" id="metrics.html"
+  .row
+    form.col-md-12.form.toolbar
+      .row
+        .form-group.col-md-4
+          input.input-lg.form-control name="q" type="text" placeholder="Search" value="" ng-model="search"
+        .col-md-3.col-md-offset-5
+          a.btn.btn-lg.btn-primary.btn-block ng-show="user.id == currentUser.id" ng-click="create()"
+            span.glyphicon.glyphicon-plus
+            | &nbsp; Add a new metric
+  .row ng-show="metrics.length > 0"
+    .item.col-md-4.col-xs-12 ng-repeat="metric in metrics|filter:search"
+      .panel.panel-default
+        .panel-heading
+          .panel-title
+            b.metric-name editable-text="metric.name"  onaftersave="save(metric)" ng-show="currentUser.id == user.id"
+              | {{metric.name}}
+            b.metric-name ng-hide="currentUser.id == user.id"
+              | {{metric.name}}
+            button.btn.btn-md.btn-link.pull-right ng-show="user.id == currentUser.id" ng-click="delete(metric)"
+              span.glyphicon.glyphicon-remove
+        .panel-body
+          ul.list-inline.pull-left ng-mouseenter="metric.tmpValue = metric.value" ng-mouseleave="metric.tmpValue = metric.value"
+            li ng-repeat="value in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]" ng-class="{selected: value <= metric.tmpValue}" ng-mouseover="displayValue(metric, value)" ng-click="metric.value = metric.tmpValue"
+              | &nbsp;
+          span.metric.pull-right
+            | {{metric.tmpValue}}
+  .row.row-centered ng-show="(metrics|filter:search).length == 0"
+    p.col-md-12.text-center.no-metrics-message
+      | No metrics :(

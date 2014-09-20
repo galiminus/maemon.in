@@ -1,0 +1,74 @@
+doctype html
+html ng-app="maytricsApp"
+  head
+    meta charset="utf-8"
+    meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible"
+    title Maytrics
+
+    = stylesheet_link_tag "application"
+    = javascript_include_tag "application"
+  body ng-controller="MainController"
+    #loading ng-if="false"
+      span
+        | {{currentUser}}
+      span us-spinner="{radius:30, width:8, length: 16}"
+    .navbar.navbar-default.navbar-fixed-top.navbar-inverse
+      .container
+        .navbar-header
+          .navbar-brand ng-show="user.id != currentUser.id"
+            span
+              |{{user.name}}'s metrics
+          .navbar-brand ng-show="user.id == currentUser.id"
+            span editable-text="user.name" onaftersave="updateUser(user)"
+              |{{user.name}}
+          .navbar-brand.logo ng-hide="user"
+            span
+              | M
+              span.sep
+              | A
+              span.sep
+              | Y
+              span.sep
+              | T
+              span.sep
+              | R
+              span.sep
+              | I
+              span.sep
+              | C
+              span.sep
+              | S
+        ul.pull-right.list-inline
+          li
+            | {{!currentUser.id && user.id}}
+          li.navbar-btn.google-signin-btn ng-if="!currentUser && user"
+            a.btn.btn-info.btn-lg.btn-block href="/auth/google_oauth2" Sign-in with google
+          li.btn.btn-lg.navbar-btn.btn-default ng-show="currentUser"
+            a ng-href="#/{{currentUser.id}}"
+              | my metrics &nbsp;
+              span.glyphicon.glyphicon-user
+          li.btn.btn-lg.navbar-btn.btn-default ng-show="currentUser" ng-click="logOut()"
+            a ng-href="/signout"
+              | log-out &nbsp;
+              span.glyphicon.glyphicon-log-out
+    .container
+      = yield
+      .ng-view
+    .footer
+      .container
+        .row
+          ul.list-inline.col-md-12
+            li
+              a href="http://phorque.it" About phorque
+            li
+              span.glyphicon.glyphicon-chevron-right
+            li
+              a href="https://github.com/phorque/maytrics-front" Fork me on Github
+            li
+              span.glyphicon.glyphicon-chevron-right
+            li
+              a href="https://github.com/phorque/maytrics" Run your own Maytrics server on Heroku
+            li
+              span.glyphicon.glyphicon-chevron-right
+            li
+              a href="https://github.com/phorque/maytrics" API documentation

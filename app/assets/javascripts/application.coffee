@@ -1,0 +1,9 @@
+#= require angular
+#= require angular-route
+#= require angular-local-storage
+#= require spin.js
+#= require angular-spinner/angular-spinner
+#= require angular-xeditable
+#= require maytrics_app
+#= require_tree ./services
+#= require_tree ./controllers

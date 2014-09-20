@@ -1,0 +1,143 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+@import url(http://fonts.googleapis.com/css?family=Roboto:700,400);
+
+$font-family-sans-serif: "Roboto";
+$border-radius-base: 0px;
+$border-radius-large: 0px;
+$navbar-inverse-bg: #333;
+$navbar-height: 64px;
+$body-bg: #1B4D3E;
+$body-bg: #F8F4FF;
+$body-bg: #536872;
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "angular-xeditable";
+@import "sticky-footer-navbar";
+
+body > .container {
+  padding: 76px 15px 0;
+}
+.container .text-muted {
+  margin: 20px 0;
+}
+
+.footer > .container {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.navbar-btn.google-signin-btn {
+    margin-bottom: 0px;
+}
+
+.no-metrics-message {
+    font-size: 4em;
+    margin-top: 10%;
+}
+
+.panel {
+    border: none;
+    .panel-heading {
+        height: 55px;
+        background-color: #222;
+        b.metric-name {
+            font-size: 24px;
+            line-height: 34px;
+            color: #fff;
+            border-color: #bbb;
+        }
+    }
+    .panel-body {
+        ul {
+            margin-bottom: 0px;
+            cursor: pointer;
+            li {
+                min-width: 17px;
+                background: #eee;
+                margin-right: 6px;
+                height: 75px;
+                &.selected {
+                    background: #555;
+                }
+            }
+        }
+        span.metric {
+            font-size: 90px;
+            line-height: 70px;
+            margin-right: 0 8px 0 0;
+        }
+    }
+}
+
+#loading {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: $body-bg;
+    z-index: 2000;
+}
+
+.navbar {
+    .navbar-brand {
+        span, .editable-link {
+            color: #eee;
+            text-transform: uppercase;
+            font-size: 150%;
+            border-color: #bbb;
+        }
+        &.logo {
+            .sep {
+                width: 1px;
+                height: 20px;
+                background-color: #555;
+                margin: 0 5px 0 5px;
+                display: inline-block;
+            }
+        }
+    }
+    .navbar-btn.btn-lg {
+        margin-bottom: 0px;
+        background-color: #444;
+        border: none;
+        padding: 12px 22px 12px 21px;
+        margin-left: 10px;
+        margin-top: 11px;
+        font-size: 15px;
+        a {
+            color: #eee;
+        }
+    }
+}
+
+.toolbar {
+    input {
+        border: none;
+    }
+}
+
+.introduction {
+    color: #fff;
+    margin-top: 8%;
+    p {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+}
