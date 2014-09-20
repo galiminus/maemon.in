@@ -8,10 +8,6 @@ html ng-app="maytricsApp"
     = stylesheet_link_tag "application"
     = javascript_include_tag "application"
   body ng-controller="MainController"
-    #loading ng-if="false"
-      span
-        | {{currentUser}}
-      span us-spinner="{radius:30, width:8, length: 16}"
     .navbar.navbar-default.navbar-fixed-top.navbar-inverse
       .container
         .navbar-header

@@ -4,6 +4,7 @@
 #= require spin.js
 #= require angular-spinner/angular-spinner
 #= require angular-xeditable
+#= require angular-deckgrid
 #= require maytrics_app
 #= require_tree ./directives
 #= require_tree ./services

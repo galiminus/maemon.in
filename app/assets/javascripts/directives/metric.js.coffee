@@ -9,8 +9,9 @@ angular.module("maytricsApp").directive "metric", ["$parse", ($parse) ->
       scope.editable = value
 
     scope.$watch attributes.metric, (metric) ->
-      scope.metric = metric
-      scope.resetValue()
+      if metric
+        scope.metric = metric
+        scope.resetValue()
 
     scope.updateTmpValue = (value) ->
       scope.tmpValue = value

@@ -1,0 +1,31 @@
+.navbar {
+    .navbar-brand {
+        span, .editable-link {
+            color: #eee;
+            text-transform: uppercase;
+            font-size: 150%;
+            border-color: #bbb;
+        }
+        &.logo {
+            .sep {
+                width: 1px;
+                height: 20px;
+                background-color: #555;
+                margin: 0 5px 0 5px;
+                display: inline-block;
+            }
+        }
+    }
+    .navbar-btn.btn-lg {
+        margin-bottom: 0px;
+        background-color: #444;
+        border: none;
+        padding: 12px 22px 12px 21px;
+        margin-left: 10px;
+        margin-top: 11px;
+        font-size: 15px;
+        a {
+            color: #eee;
+        }
+    }
+}

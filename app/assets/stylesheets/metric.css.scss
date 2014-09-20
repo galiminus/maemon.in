@@ -1,0 +1,32 @@
+.panel {
+    border: none;
+    .panel-heading {
+        background-color: #222;
+        b.metric-name {
+            font-size: 24px;
+            line-height: 34px;
+            color: #fff;
+            border-color: #bbb;
+        }
+    }
+    .panel-body {
+        ul.metric-value {
+            margin-bottom: 0px;
+            cursor: pointer;
+            li {
+                min-width: 17px;
+                background: #eee;
+                margin-right: 6px;
+                height: 75px;
+                &.selected {
+                    background: #555;
+                }
+            }
+        }
+        span.metric {
+            font-size: 90px;
+            line-height: 70px;
+            margin-right: 0 8px 0 0;
+        }
+    }
+}

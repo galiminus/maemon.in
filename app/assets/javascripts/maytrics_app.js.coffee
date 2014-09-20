@@ -1,4 +1,11 @@
-app = angular.module("maytricsApp", ["angularSpinner", "xeditable", "LocalStorageModule", "ngRoute"])
+app = angular.module("maytricsApp",
+  [
+    "angularSpinner"
+    "xeditable"
+    "LocalStorageModule"
+    "ngRoute"
+    "akoenig.deckgrid"
+  ])
 app.config ['$routeProvider', ($routeProvider) ->
   $routeProvider
     .when '/',
