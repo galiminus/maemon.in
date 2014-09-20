@@ -57,8 +57,7 @@ gem 'active_model_serializers', "~> 0.9.0"
 gem "bootstrap-sass"
 gem "rails-assets-angular"
 gem "rails-assets-angular-route"
-gem 'rails-assets-spin.js'
-gem 'rails-assets-angular-spinner'
+gem "rails-assets-angular-masonry"
+gem "rails-assets-angular-animate"
 gem 'rails-assets-angular-xeditable'
-gem 'rails-assets-angular-local-storage'
 gem 'rails-assets-angular-deckgrid'

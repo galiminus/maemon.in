@@ -1,20 +1,23 @@
 script type="text/ng-template" id="metric.html"
-  .panel.panel-default
-    .panel-heading
+  .panel.panel-default ng-init="showOptions = false"
+    .panel-heading.editable ng-show="editable" ng-click="showOptions = !showOptions"
       .panel-title
         b.metric-name editable-text="metric.name" onaftersave="save(metric)" ng-show="editable"
           | {{metric.name}}
-        b.metric-name ng-hide="editable"
+    .panel-heading ng-hide="editable"
+      .panel-title
+        b.metric-name
           | {{metric.name}}
     .panel-body
+      ul.list-inline.list-unstyled.options.options-dropdown ng-show="showOptions"
+        li
+          button.btn.btn-link edit
+        li
+          button.btn.btn-link share
+        li
+          button.btn.btn-link ng-click="deleteMetric()" delete
       ul.list-inline.pull-left.metric-value ng-mouseenter="resetValue()" ng-mouseleave="resetValue()"
         li ng-repeat="value in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]" ng-class="{selected: value <= tmpValue}" ng-mouseover="updateTmpValue(value)" ng-click="setValue(value)"
           | &nbsp;
       span.metric.pull-right
         | {{tmpValue}}
-    .panel-body
-      ul.list-inline.list-unstyled
-        li
-          button.btn.btn-link delete
-        li
-          button.btn.btn-link share

@@ -114,17 +114,44 @@ GEM
       railties (= 4.1.5)
       sprockets-rails (~> 2.0)
     rails-assets-angular (1.2.16)
+    rails-assets-angular-animate (1.2.20)
+      rails-assets-angular (~> 1.2.0)
     rails-assets-angular-deckgrid (0.4.4)
       rails-assets-angular (~> 1.2.0)
-    rails-assets-angular-local-storage (0.0.7)
+    rails-assets-angular-masonry (0.9.1)
+      rails-assets-angular (~> 1.2.0)
+      rails-assets-imagesloaded (~> 3.1.0)
+      rails-assets-jquery (~> 2.1.0)
+      rails-assets-masonry (~> 3.1.0)
     rails-assets-angular-route (1.2.16)
       rails-assets-angular (= 1.2.16)
-    rails-assets-angular-spinner (0.5.1)
-      rails-assets-angular (>= 1.0.0, < 1.4.0)
-      rails-assets-spin.js (~> 2.0.0)
     rails-assets-angular-xeditable (0.1.8)
       rails-assets-angular (~> 1.0)
-    rails-assets-spin.js (2.0.1)
+    rails-assets-desandro--doc-ready (1.0.3)
+      rails-assets-desandro--eventie
+    rails-assets-desandro--eventie (1.0.5)
+    rails-assets-desandro--get-size (1.1.7)
+      rails-assets-desandro--get-style-property (>= 1, < 2)
+    rails-assets-desandro--get-style-property (1.0.3)
+    rails-assets-desandro--matches-selector (1.0.2)
+    rails-assets-eventEmitter (4.2.8)
+    rails-assets-eventie (1.0.5)
+    rails-assets-imagesloaded (3.1.8)
+      rails-assets-eventEmitter (~> 4.0)
+      rails-assets-eventie (>= 1.0.4, < 2)
+    rails-assets-jquery (2.1.1)
+    rails-assets-jquery-bridget (1.0.1)
+    rails-assets-masonry (3.1.5)
+      rails-assets-desandro--get-size (>= 1, < 2)
+      rails-assets-outlayer (>= 1.2.0, < 2)
+    rails-assets-outlayer (1.2.0)
+      rails-assets-desandro--doc-ready (>= 1.0.1, < 2.0)
+      rails-assets-desandro--get-size (>= 1, < 2)
+      rails-assets-desandro--get-style-property (>= 1, < 2)
+      rails-assets-desandro--matches-selector (>= 1, < 2)
+      rails-assets-eventEmitter (>= 4.2, < 5)
+      rails-assets-eventie (>= 1.0.3, < 2.0)
+      rails-assets-jquery-bridget (>= 1, < 2)
     rails_12factor (0.0.2)
       rails_serve_static_assets
       rails_stdout_logging
@@ -217,12 +244,11 @@ DEPENDENCIES
   pundit (~> 0.3.0)
   rails (= 4.1.5)
   rails-assets-angular
+  rails-assets-angular-animate
   rails-assets-angular-deckgrid
-  rails-assets-angular-local-storage
+  rails-assets-angular-masonry
   rails-assets-angular-route
-  rails-assets-angular-spinner
   rails-assets-angular-xeditable
-  rails-assets-spin.js
   rails_12factor
   rspec-rails
   sass-rails (~> 4.0.3)

@@ -1,9 +1,8 @@
 app = angular.module("maytricsApp",
   [
-    "angularSpinner"
     "xeditable"
-    "LocalStorageModule"
     "ngRoute"
+    "ngAnimate"
     "akoenig.deckgrid"
   ])
 app.config ['$routeProvider', ($routeProvider) ->

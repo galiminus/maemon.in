@@ -1,8 +1,6 @@
 #= require angular
 #= require angular-route
-#= require angular-local-storage
-#= require spin.js
-#= require angular-spinner/angular-spinner
+#= require angular-animate
 #= require angular-xeditable
 #= require angular-deckgrid
 #= require maytrics_app

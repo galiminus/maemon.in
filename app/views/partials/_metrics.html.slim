@@ -8,8 +8,8 @@ script type="text/ng-template" id="metrics.html"
           a.btn.btn-lg.btn-primary.btn-block ng-show="user.id == currentUser.id" ng-click="create()"
             span.glyphicon.glyphicon-plus
             | &nbsp; Add a new metric
-  .row.deckgrid deckgrid="true" source="metrics|filter:search" ng-show="metrics.length > 0"
-    metric metric="card" editable-if="user.id == currentUser.id" on-metric-update="update(card)" on-metric-delete="delete(card)"
+  .row.deckgrid deckgrid="true" source="metrics" ng-show="metrics.length > 0"
+    metric metric="card" editable-if="mother.user.id == mother.currentUser.id" on-metric-update="mother.update(card)" on-metric-delete="mother.delete(card)"
   .row.row-centered ng-show="(metrics|filter:search).length == 0"
     p.col-md-12.text-center.no-metrics-message
       | No metrics :(
