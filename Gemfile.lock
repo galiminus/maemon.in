@@ -92,6 +92,7 @@ GEM
       multi_json (~> 1.3)
       oauth2 (~> 1.0)
       omniauth (~> 1.2)
+    pg (0.17.1)
     polyglot (0.3.5)
     pry (0.10.0)
       coderay (~> 1.1.0)
@@ -124,6 +125,11 @@ GEM
     rails-assets-angular-xeditable (0.1.8)
       rails-assets-angular (~> 1.0)
     rails-assets-spin.js (2.0.1)
+    rails_12factor (0.0.2)
+      rails_serve_static_assets
+      rails_stdout_logging
+    rails_serve_static_assets (0.0.2)
+    rails_stdout_logging (0.0.3)
     railties (4.1.5)
       actionpack (= 4.1.5)
       activesupport (= 4.1.5)
@@ -206,6 +212,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   omniauth-google-oauth2 (~> 0.2.5)
+  pg
   pry
   pundit (~> 0.3.0)
   rails (= 4.1.5)
@@ -216,6 +223,7 @@ DEPENDENCIES
   rails-assets-angular-spinner
   rails-assets-angular-xeditable
   rails-assets-spin.js
+  rails_12factor
   rspec-rails
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
