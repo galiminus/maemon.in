@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+source 'https://rails-assets.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.5'
@@ -56,4 +56,4 @@ gem 'rails-assets-spin.js'
 gem 'rails-assets-angular-spinner'
 gem 'rails-assets-angular-xeditable'
 gem 'rails-assets-angular-local-storage'
-
+gem 'rails-assets-angular-deckgrid'

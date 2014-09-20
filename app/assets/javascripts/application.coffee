@@ -5,5 +5,6 @@
 #= require angular-spinner/angular-spinner
 #= require angular-xeditable
 #= require maytrics_app
+#= require_tree ./directives
 #= require_tree ./services
 #= require_tree ./controllers

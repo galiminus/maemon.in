@@ -1,0 +1,14 @@
+script type="text/ng-template" id="metric.html"
+  .panel.panel-default
+    .panel-heading
+      .panel-title
+        b.metric-name editable-text="metric.name" onaftersave="save(metric)" ng-show="editable"
+          | {{metric.name}}
+        b.metric-name ng-hide="editable"
+          | {{metric.name}}
+    .panel-body
+      ul.list-inline.pull-left ng-mouseenter="resetValue()" ng-mouseleave="resetValue()"
+        li ng-repeat="value in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]" ng-class="{selected: value <= tmpValue}" ng-mouseover="updateTmpValue(value)" ng-click="setValue(value)"
+          | &nbsp;
+      span.metric.pull-right
+        | {{tmpValue}}
