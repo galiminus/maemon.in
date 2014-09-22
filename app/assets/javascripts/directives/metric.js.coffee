@@ -16,6 +16,10 @@ angular.module("maytricsApp").directive "metric", ["$parse", ($parse) ->
     scope.updateTmpValue = (value) ->
       scope.tmpValue = value
 
+    scope.updateMetric = (metric) ->
+      scope.showOptions = false
+      scope.onMetricUpdate(scope)
+
     scope.setValue = (value) ->
       scope.metric.value = value
       scope.onMetricUpdate(scope)

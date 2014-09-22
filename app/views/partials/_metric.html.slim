@@ -2,18 +2,18 @@ script type="text/ng-template" id="metric.html"
   .panel.panel-default ng-init="showOptions = false"
     .panel-heading.editable ng-show="editable" ng-click="showOptions = !showOptions"
       .panel-title
-        b.metric-name editable-text="metric.name" onaftersave="save(metric)" ng-show="editable"
+        b.metric-name editable-text="metric.name" onaftersave="updateMetric(metric)" ng-show="editable"
           | {{metric.name}}
     .panel-heading ng-hide="editable"
       .panel-title
         b.metric-name
           | {{metric.name}}
     .panel-body
-      ul.list-inline.list-unstyled.options.options-dropdown ng-show="showOptions"
+      ul.list-inline.list-unstyled.options.options-dropdown.pull-right ng-show="showOptions"
         li
-          button.btn.btn-link edit
+          button.btn.btn-link ng-click="updateMetric(metric.name)" save
         li
-          button.btn.btn-link share
+          button.btn.btn-link ng-click="deleteMetric()" cancel
         li
           button.btn.btn-link ng-click="deleteMetric()" delete
       ul.list-inline.pull-left.metric-value ng-mouseenter="resetValue()" ng-mouseleave="resetValue()"

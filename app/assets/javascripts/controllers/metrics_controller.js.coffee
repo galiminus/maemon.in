@@ -1,12 +1,15 @@
 angular.module("maytricsApp").controller 'MetricsController',
-  ["$scope", "$routeParams", "Metrics", "Users"
-    ($scope, $routeParams, Metrics, Users) ->
+  ["$scope", "$routeParams", "Metrics", "Users", "Hashtags"
+    ($scope, $routeParams, Metrics, Users, Hashtags) ->
       $scope.user =
         id: parseInt($routeParams.userId)
       $scope.loadUser $scope.user.id
 
       Metrics.all($routeParams.userId).then (response) ->
         $scope.metrics = response.data.metrics
+        $scope.$watch "metrics", ->
+          $scope.hashtags = Hashtags.extractAll $scope.metrics
+        , true
 
         $scope.create = ->
           metric =

@@ -12,6 +12,15 @@
             color: #fff;
             border-color: #bbb;
         }
+        input {
+            font-size: 24px;
+            border: none;
+            color: #fff;
+            background-color: #222;
+            padding: 0px;
+            box-shadow: none;
+            font-weight: bold;
+        }
     }
     .panel-body {
         padding-top: 7px;
@@ -61,7 +70,7 @@
         span.metric {
             font-size: 90px;
             line-height: 70px;
-            margin-right: 0 8px 0 0;
+            margin-top: 8px;
         }
     }
 }

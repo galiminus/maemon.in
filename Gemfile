@@ -54,6 +54,9 @@ gem 'figaro', '~> 0.7.0'
 # better serialization
 gem 'active_model_serializers', "~> 0.9.0"
 
+gem 'attachinary'
+gem 'cloudinary'
+
 gem "bootstrap-sass"
 gem "rails-assets-angular"
 gem "rails-assets-angular-route"
