@@ -26,7 +26,10 @@ angular.module("maytricsApp").controller 'MetricsController',
               (element for element in $scope.metrics when element != metric)
 
         $scope.update = (metric) ->
-          Metrics.update($scope.currentUser.id, metric.id, metric)
+          if (metric.name == "")
+            $scope.delete metric
+          else
+            Metrics.update($scope.currentUser.id, metric.id, metric)
 
 
 ]

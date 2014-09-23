@@ -11,10 +11,6 @@ script type="text/ng-template" id="metric.html"
     .panel-body
       ul.list-inline.list-unstyled.options.options-dropdown.pull-right ng-show="showOptions"
         li
-          button.btn.btn-link ng-click="updateMetric(metric.name)" save
-        li
-          button.btn.btn-link ng-click="deleteMetric()" cancel
-        li
           button.btn.btn-link ng-click="deleteMetric()" delete
       ul.list-inline.pull-left.metric-value ng-mouseenter="resetValue()" ng-mouseleave="resetValue()"
         li ng-repeat="value in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]" ng-class="{selected: value <= tmpValue}" ng-mouseover="updateTmpValue(value)" ng-click="setValue(value)"

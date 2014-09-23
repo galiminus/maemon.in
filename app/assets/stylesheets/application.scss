@@ -32,7 +32,21 @@ $body-bg: #536872;
 @import "header";
 @import "footer";
 
-body > .container {
+textarea:hover,
+input:hover,
+textarea:active,
+input:active,
+textarea:focus,
+input:focus,
+button:focus,
+button:active,
+button:hover
+{
+    outline:0px !important;
+    -webkit-appearance:none;
+}
+
+body > .ng-view > .container:nth-child(1) {
   padding: 76px 15px 0;
 }
 .container .text-muted {

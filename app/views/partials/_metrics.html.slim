@@ -1,22 +1,24 @@
 script type="text/ng-template" id="metrics.html"
-  .row
-    form.col-md-12.form.toolbar
-      .row
-        .form-group.col-md-4
-          input.input-lg.form-control name="q" type="text" placeholder="Filter" value="" ng-model="search"
-        ul.col-md-5.hashtags.list-inline.list-unstyled
-          li ng-repeat="hashtag in hashtags"
-            a ng-href="#/{{user.id}}/{{hashtag|encodeUri}}"
-              | {{hashtag}}
-        .col-md-3
-          a.btn.btn-lg.btn-primary.btn-block ng-show="user.id == currentUser.id" ng-click="create()"
-            span.glyphicon.glyphicon-plus
-            | &nbsp; Add a new metric
-  .row
-    .col-md-4 ng-repeat="lol in [1, 2, 3]"
-      .row
-        metric.col-md-12 metric="card" editable-if="user.id == currentUser.id" on-metric-update="update(card)" on-metric-delete="delete(card)" ng-repeat="card in metrics|filter:search" ng-if="$index % 3 == $parent.$index"
+  .container
+    .row
+      form.col-md-12.form.toolbar
+        .row
+          .form-group.col-md-4
+            input.input-lg.form-control name="q" type="text" placeholder="Filter" value="" ng-model="search"
+          ul.col-md-5.hashtags.list-inline.list-unstyled
+            li ng-repeat="hashtag in hashtags"
+              a ng-href="#/{{user.id}}/{{hashtag|encodeUri}}"
+                | {{hashtag}}
+          .col-md-3
+            a.btn.btn-lg.btn-primary.btn-block ng-show="user.id == currentUser.id" ng-click="create()"
+              span.glyphicon.glyphicon-plus
+              | &nbsp; Add a new metric
+  .container
+    .row
+      .col-md-4 ng-repeat="lol in [1, 2, 3]"
+        .row
+          metric.col-md-12 metric="card" editable-if="user.id == currentUser.id" on-metric-update="update(card)" on-metric-delete="delete(card)" ng-repeat="card in metrics|filter:search" ng-if="$index % 3 == $parent.$index"
 
-  .row.row-centered ng-show="(metrics|filter:search).length == 0"
-    p.col-md-12.text-center.no-metrics-message
-      | No metrics :(
+    .row.row-centered ng-show="(metrics|filter:search).length == 0"
+      p.col-md-12.text-center.no-metrics-message
+        | No metrics :(

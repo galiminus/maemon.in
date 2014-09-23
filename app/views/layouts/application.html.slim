@@ -37,9 +37,7 @@ html ng-app="maytricsApp"
               | C
               span.sep
               | S
-        ul.pull-right.list-inline
-          li
-            | {{!currentUser.id && user.id}}
+        ul.navbar-right.list-inline
           li.navbar-btn.google-signin-btn ng-if="!currentUser && user"
             a.btn.btn-info.btn-lg.btn-block href="/auth/google_oauth2" Sign-in with google
           li.btn.btn-lg.navbar-btn.btn-default ng-show="currentUser"
@@ -50,9 +48,11 @@ html ng-app="maytricsApp"
             a ng-href="/signout"
               | log-out &nbsp;
               span.glyphicon.glyphicon-log-out
-    .container
-      = yield
-      .ng-view
+        form.navbar-form.navbar-right.user-search
+          input type="text" placeholder="Search maytrics"
+
+    = yield
+    .ng-view
     .footer
       .container
         .row

@@ -15,7 +15,7 @@
             }
         }
         form.editable-wrap {
-            height: 64px;
+            height: 60px;
             input {
                 border: none;
                 color: #eee;
@@ -24,16 +24,32 @@
                 box-shadow: none;
                 font-size: 170%;
                 vertical-align: top;
-                height: 60px;
+                height: 52px;
             }
         }
         &.user {
             padding: 0px 15px;
-            line-height: 64px;
+            line-height: 56px;
             img {
                 margin-right: 10px;
                 margin-top: 8px;
                 float: left;
+            }
+        }
+    }
+    form.user-search {
+        margin: 17px 0 0 0;
+        padding-right: 30px;
+        input {
+            border: none;
+            height: 31px;
+            font-size: 100%;
+            border-radius: 43px;
+            padding-left: 20px;
+            padding-right: 20px;
+            &:focus {
+                box-shadow: none;
+                border: none;
             }
         }
     }
