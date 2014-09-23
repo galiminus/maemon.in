@@ -1,6 +1,6 @@
 angular.module("maytricsApp").controller 'MetricsController',
-  ["$scope", "$routeParams", "Metrics", "Users", "Hashtags"
-    ($scope, $routeParams, Metrics, Users, Hashtags) ->
+  ["$scope", "$routeParams", "Metrics", "Users", "Hashtags",
+    ($scope, $routeParams, Metrics, Users, Hashtags, $filter) ->
       $scope.user =
         id: parseInt($routeParams.userId)
       $scope.loadUser $scope.user.id
@@ -26,4 +26,6 @@ angular.module("maytricsApp").controller 'MetricsController',
 
         $scope.update = (metric) ->
           Metrics.update($scope.currentUser.id, metric.id, metric)
+
+
 ]

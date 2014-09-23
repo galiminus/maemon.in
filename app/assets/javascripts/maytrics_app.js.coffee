@@ -3,7 +3,6 @@ app = angular.module("maytricsApp",
     "xeditable"
     "ngRoute"
     "ngAnimate"
-    "akoenig.deckgrid"
   ])
 app.config ['$routeProvider', ($routeProvider) ->
   $routeProvider

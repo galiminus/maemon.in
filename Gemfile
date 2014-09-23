@@ -63,4 +63,5 @@ gem "rails-assets-angular-route"
 gem "rails-assets-angular-masonry"
 gem "rails-assets-angular-animate"
 gem 'rails-assets-angular-xeditable'
-gem 'rails-assets-angular-deckgrid'
+
+gem 'textacular', '~> 3.0'
