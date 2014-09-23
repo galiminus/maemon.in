@@ -4,6 +4,6 @@ class UserPolicy < ApplicationPolicy
   end
 
   def update?
-    user.id == record.id
+    user.id == resource.id
   end
 end

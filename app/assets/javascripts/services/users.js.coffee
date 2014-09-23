@@ -1,6 +1,6 @@
 angular.module("maytricsApp").service "Users",
   ["$http", ($http) ->
-    getUser: (id) ->
+    get: (id) ->
       $http
         method: "GET"
         url: "/users/#{id}.json"
@@ -10,9 +10,11 @@ angular.module("maytricsApp").service "Users",
         method: "GET"
         url: "/user.json"
 
-    updateUser: (id, data) ->
+    update: (id, user) ->
       $http
         method: "PUT"
         url: "/users/#{id}.json"
-        data: data
+        data:
+          user:
+            name: user.name
 ]

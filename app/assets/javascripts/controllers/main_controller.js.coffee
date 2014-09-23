@@ -5,6 +5,9 @@ angular.module("maytricsApp").controller 'MainController',
       $scope.$broadcast 'logged.in', $scope.currentUser
 
     $scope.loadUser = (userId) ->
-      Users.getUser(userId).then (user) ->
+      Users.get(userId).then (user) ->
         $scope.user = user.data.user
+
+    $scope.updateUser = (user) ->
+      Users.update(user.id, $scope.user)
 ]

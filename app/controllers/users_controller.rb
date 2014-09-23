@@ -15,6 +15,7 @@ class UsersController < ApplicationController
   end
 
   def update
+    respond_with user.update(user_params)
   end
 
   protected
@@ -23,5 +24,9 @@ class UsersController < ApplicationController
     (params[:id] ? User.find(params[:id]) : current_user).tap do |user|
       authorize user
     end
+  end
+
+  def user_params
+    params.require(:user).permit(:name)
   end
 end
