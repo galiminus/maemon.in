@@ -3,10 +3,10 @@ script type="text/ng-template" id="metrics.html"
     form.col-md-12.form.toolbar
       .row
         .form-group.col-md-4
-          input.input-lg.form-control name="q" type="text" placeholder="Search" value="" ng-model="search"
+          input.input-lg.form-control name="q" type="text" placeholder="Filter" value="" ng-model="search"
         ul.col-md-5.hashtags.list-inline.list-unstyled
           li ng-repeat="hashtag in hashtags"
-            a ng-href="/{{user.id}}/{{hashtag}}"
+            a ng-href="#/{{user.id}}/{{hashtag|encodeUri}}"
               | {{hashtag}}
         .col-md-3
           a.btn.btn-lg.btn-primary.btn-block ng-show="user.id == currentUser.id" ng-click="create()"

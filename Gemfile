@@ -5,7 +5,7 @@ source 'https://rails-assets.org'
 gem 'rails', '4.1.5'
 
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.3'
+gem 'sass-rails'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
@@ -43,7 +43,7 @@ end
 gem 'omniauth-google-oauth2', '~> 0.2.5'
 
 # slim templates
-gem 'slim-rails', '~> 2.1.5'
+gem 'slim-rails'
 
 # authorization
 gem 'pundit', '~> 0.3.0'
@@ -58,10 +58,11 @@ gem 'attachinary'
 gem 'cloudinary'
 
 gem "bootstrap-sass"
-gem "rails-assets-angular"
+gem "rails-assets-angular", '~> 1.2.6'
 gem "rails-assets-angular-route"
-gem "rails-assets-angular-masonry"
 gem "rails-assets-angular-animate"
 gem 'rails-assets-angular-xeditable'
+
+gem 'rails-assets-angular-encode-uri', '~> 1.0'
 
 gem 'textacular', '~> 3.0'

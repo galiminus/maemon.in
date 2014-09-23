@@ -1,6 +1,7 @@
 angular.module("maytricsApp").controller 'MetricsController',
-  ["$scope", "$routeParams", "Metrics", "Users", "Hashtags",
-    ($scope, $routeParams, Metrics, Users, Hashtags, $filter) ->
+  ["$scope", "$routeParams", "$location", "Metrics", "Users", "Hashtags",
+    ($scope, $routeParams, $location, Metrics, Users, Hashtags, $filter) ->
+      $scope.search = $routeParams.search || ""
       $scope.user =
         id: parseInt($routeParams.userId)
       $scope.loadUser $scope.user.id

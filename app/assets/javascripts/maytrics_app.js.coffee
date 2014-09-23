@@ -3,6 +3,7 @@ app = angular.module("maytricsApp",
     "xeditable"
     "ngRoute"
     "ngAnimate"
+    "rt.encodeuri"
   ])
 app.config ['$routeProvider', ($routeProvider) ->
   $routeProvider
@@ -10,6 +11,9 @@ app.config ['$routeProvider', ($routeProvider) ->
       templateUrl: "home.html"
       controller: "HomeController"
     .when '/:userId',
+      templateUrl: "metrics.html"
+      controller: "MetricsController"
+    .when '/:userId/:search',
       templateUrl: "metrics.html"
       controller: "MetricsController"
 ]

@@ -13,12 +13,12 @@ html ng-app="maytricsApp"
         .navbar-header
           .navbar-brand.user ng-show="user.id != currentUser.id"
             span
-              img.img-circle src="{{user.avatar}}"
+              img.img-circle ng-src="{{user.avatar}}"
             span
               |{{user.name}}'s metrics
           .navbar-brand.user ng-show="user.id == currentUser.id"
             span
-              img.img-circle src="{{user.avatar}}"
+              img.img-circle ng-src="{{user.avatar}}"
             span editable-text="user.name" onaftersave="updateUser(user)"
               |{{user.name}}
           .navbar-brand.logo ng-hide="user"

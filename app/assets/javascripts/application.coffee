@@ -2,7 +2,7 @@
 #= require angular-route
 #= require angular-animate
 #= require angular-xeditable
-#= require angular-deckgrid
+#= require angular-encode-uri
 #= require maytrics_app
 #= require_tree ./directives
 #= require_tree ./services
