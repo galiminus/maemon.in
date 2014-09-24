@@ -3,6 +3,7 @@
 #= require angular-animate
 #= require angular-xeditable
 #= require angular-encode-uri
+#= require angucomplete-alt/angucomplete-alt
 #= require maytrics_app
 #= require_tree ./directives
 #= require_tree ./services

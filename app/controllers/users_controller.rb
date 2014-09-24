@@ -3,6 +3,10 @@ class UsersController < ApplicationController
     respond_with user
   end
 
+  def index
+    respond_with User.search(search_params)
+  end
+
   def create
     user = User.create_with_omniauth(request.env["omniauth.auth"])
     session[:user_id] = user.id
@@ -24,6 +28,10 @@ class UsersController < ApplicationController
     (params[:id] ? User.find(params[:id]) : current_user).tap do |user|
       authorize user
     end
+  end
+
+  def search_params
+    params.require(:q)
   end
 
   def user_params

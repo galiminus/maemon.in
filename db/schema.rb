@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20140920163214) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "attachinary_files", force: true do |t|
     t.integer  "attachinariable_id"
     t.string   "attachinariable_type"
@@ -27,7 +30,7 @@ ActiveRecord::Schema.define(version: 20140920163214) do
     t.datetime "updated_at"
   end
 
-  add_index "attachinary_files", ["attachinariable_type", "attachinariable_id", "scope"], name: "by_scoped_parent"
+  add_index "attachinary_files", ["attachinariable_type", "attachinariable_id", "scope"], name: "by_scoped_parent", using: :btree
 
   create_table "metrics", force: true do |t|
     t.string   "name"
@@ -37,7 +40,7 @@ ActiveRecord::Schema.define(version: 20140920163214) do
     t.integer  "user_id"
   end
 
-  add_index "metrics", ["user_id"], name: "index_metrics_on_user_id"
+  add_index "metrics", ["user_id"], name: "index_metrics_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "provider"

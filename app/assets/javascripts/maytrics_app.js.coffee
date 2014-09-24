@@ -4,6 +4,7 @@ app = angular.module("maytricsApp",
     "ngRoute"
     "ngAnimate"
     "rt.encodeuri"
+    "angucomplete-alt"
   ])
 app.config ['$routeProvider', ($routeProvider) ->
   $routeProvider

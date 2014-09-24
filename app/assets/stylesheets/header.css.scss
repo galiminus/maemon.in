@@ -44,12 +44,17 @@
             border: none;
             height: 31px;
             font-size: 100%;
-            border-radius: 43px;
             padding-left: 20px;
             padding-right: 20px;
+            position: relative;
+            z-index: 1;
+            background: #666;
+            color: #fff;
+            width: 260px;
             &:focus {
                 box-shadow: none;
                 border: none;
+                background: #777;
             }
         }
     }
@@ -65,4 +70,39 @@
             color: #eee;
         }
     }
+
+    .angucomplete-holder {
+        position: relative;
+
+        .angucomplete-dropdown {
+            background: #fff;
+            position: absolute;
+            width: 100%;
+            z-index: 0;
+            border-bottom: 3px solid #226baa;
+            .angucomplete-searching {
+                padding: 10px;
+            }
+            .angucomplete-row {
+                padding: 10px;
+                cursor: pointer;
+                &:hover {
+                    background: #428bca;
+                    color: #fff;
+                }
+                .angucomplete-image-holder {
+                    float: left;
+                    img {
+                        border-radius: 100%;
+                        border: 1px solid #333;
+                    }
+                }
+                .angucomplete-title {
+                    margin-left: 60px;
+                    line-height: 50px;
+                }
+            }
+        }
+    }
+
 }
