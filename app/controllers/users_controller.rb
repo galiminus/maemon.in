@@ -25,7 +25,7 @@ class UsersController < ApplicationController
   protected
 
   def user
-    (params[:id] ? User.find(params[:id]) : current_user).tap do |user|
+    (params[:id] ? User.friendly.find(params[:id]) : current_user).tap do |user|
       authorize user
     end
   end

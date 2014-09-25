@@ -3,7 +3,7 @@ angular.module("maytricsApp").controller 'MetricsController',
     ($scope, $routeParams, $location, Metrics, Users, Hashtags, $filter) ->
       $scope.search = $routeParams.search || ""
       $scope.user =
-        id: parseInt($routeParams.userId)
+        id: $routeParams.userId
       $scope.loadUser $scope.user.id
 
       Metrics.all($routeParams.userId).then (response) ->

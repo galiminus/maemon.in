@@ -63,6 +63,8 @@ GEM
     figaro (0.7.0)
       bundler (~> 1.0)
       rails (>= 3, < 5)
+    friendly_id (5.0.3)
+      activerecord (>= 4.0.0)
     hashie (3.3.1)
     hike (1.2.3)
     i18n (0.6.11)
@@ -223,6 +225,7 @@ DEPENDENCIES
   fabrication
   ffaker
   figaro (~> 0.7.0)
+  friendly_id
   jbuilder (~> 2.0)
   jquery-rails
   omniauth-google-oauth2 (~> 0.2.5)

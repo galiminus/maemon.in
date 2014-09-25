@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+  extend FriendlyId
+  friendly_id :name
+
   has_many :metrics
   has_attachment  :avatar, accept: [:jpg, :png, :gif]
 

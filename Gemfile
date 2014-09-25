@@ -66,3 +66,4 @@ gem 'rails-assets-angular-encode-uri', '~> 1.0'
 gem 'rails-assets-angucomplete-alt'
 
 gem 'textacular', '~> 3.0'
+gem 'friendly_id'

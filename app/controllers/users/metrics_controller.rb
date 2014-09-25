@@ -25,7 +25,7 @@ class Users::MetricsController < ApplicationController
   protected
 
   def user
-    User.find(params[:user_id])
+    User.friendly.find(params[:user_id])
   end
 
   def metric
