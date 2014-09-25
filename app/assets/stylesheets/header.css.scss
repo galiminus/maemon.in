@@ -1,4 +1,6 @@
 .navbar {
+    border: none;
+    box-shadow: 0px 1px 2px #000;
     .navbar-brand {
         span, .editable-link {
             color: #eee;
@@ -38,36 +40,44 @@
         }
     }
     form.user-search {
-        margin: 17px 0 0 0;
-        padding-right: 30px;
+        margin: 11px 0 0 0;
+        padding-right: 21px;
         input {
             border: none;
-            height: 31px;
+            height: 43px;
             font-size: 100%;
             padding-left: 20px;
             padding-right: 20px;
             position: relative;
             z-index: 1;
-            background: #666;
+            background: #444;
             color: #fff;
             width: 260px;
+
+            transition: background-color 0.1s ease;
             &:focus {
                 box-shadow: none;
                 border: none;
-                background: #777;
+                background: #555;
             }
         }
     }
     .navbar-btn.btn-lg {
         margin-bottom: 0px;
-        background-color: #444;
+        background: #444;
         border: none;
-        padding: 12px 22px 12px 21px;
         margin-left: 10px;
         margin-top: 11px;
         font-size: 15px;
         a {
             color: #eee;
+            padding: 5px 16px 0 16px;
+            display: block;
+        }
+
+        transition: background-color 0.2s ease;
+        &:hover {
+            background-color: #555;
         }
     }
 

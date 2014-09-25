@@ -37,18 +37,23 @@ html ng-app="maytricsApp"
               | C
               span.sep
               | S
-        ul.navbar-right.list-inline
-          li.navbar-btn.google-signin-btn ng-if="!currentUser && user"
+        ul.navbar-right.list-inline ng-if="!currentUser && user"
+          li.navbar-btn.google-signin-btn
             a.btn.btn-info.btn-lg.btn-block href="/auth/google_oauth2" Sign-in with google
-          li.btn.btn-lg.navbar-btn.btn-default ng-show="currentUser"
+        ul.navbar-right.list-inline ng-show="currentUser"
+          li.btn.btn-lg.navbar-btn.btn-default
+            a ng-href=""
+              span.glyphicon.glyphicon-chevron-down
+          li.btn.btn-lg.navbar-btn.btn-default
+            a ng-href=""
+              span.glyphicon.glyphicon-bell
+          li.btn.btn-lg.navbar-btn.btn-default
             a ng-href="#/{{currentUser.id}}"
-              | my metrics &nbsp;
               span.glyphicon.glyphicon-user
-          li.btn.btn-lg.navbar-btn.btn-default ng-show="currentUser" ng-click="logOut()"
+          li.btn.btn-lg.navbar-btn.btn-default
             a ng-href="/signout"
-              | log-out &nbsp;
               span.glyphicon.glyphicon-log-out
-        form.navbar-form.navbar-right.user-search
+        form.navbar-form.navbar-right.user-search ng-show="currentUser"
           angucomplete-alt id="search" placeholder="Search members" remote-url="/users.json?q=" remote-url-data-field="users" title-field="name" image-field="avatar" pause="400" minlength="1" selected-object="goToUser" search-fields="name"
 
     = yield

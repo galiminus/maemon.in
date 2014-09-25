@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   def create
     user = User.create_with_omniauth(request.env["omniauth.auth"])
     session[:user_id] = user.id
-    redirect_to "#/#{user.id}"
+    redirect_to "#/#{Rack::Utils.escape user.friendly_id}"
   end
 
   def destroy
