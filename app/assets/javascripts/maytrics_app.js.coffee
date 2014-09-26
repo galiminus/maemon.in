@@ -9,9 +9,6 @@ app = angular.module("maytricsApp",
   ])
 app.config ['$routeProvider', ($routeProvider) ->
   $routeProvider
-    .when '/',
-      templateUrl: "home.html"
-      controller: "HomeController"
     .when '/:userId',
       templateUrl: "metrics.html"
       controller: "MetricsController"
