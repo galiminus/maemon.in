@@ -6,8 +6,8 @@
           input.input-lg.form-control name="q" type="text" placeholder="Filter" value="" ng-model="search" ng-show="metrics.length > 0"
         ul.col-md-5.hashtags.list-inline.list-unstyled
           li ng-repeat="hashtag in hashtags"
-            a ng-href="#/{{user.id}}/{{hashtag|encodeUri}}"
-              | {{hashtag}}
+            a ng-href="/{{user.id}}/{{hashtag|encodeUri}}"
+              | \#{{hashtag}}
         .col-md-3.add-metric
           a.btn.btn-lg.btn-primary.btn-block.btn-add-metric ng-show="user.id == currentUser.id" ng-click="create()"
             span.glyphicon.glyphicon-plus
@@ -21,5 +21,5 @@
   .row.row-centered
     p.col-md-6.col-md-offset-3.text-center.no-metrics-message ng-show="metrics.length == 0"
       | This user has no metric yet.
-    p.col-md-6.text-center.no-metrics-message ng-show="metrics.length > 0 && (metrics|filter:search).length == 0"
+    p.col-md-6.col-md-offset-3.text-center.no-metrics-message ng-show="metrics.length > 0 && (metrics|filter:search).length == 0"
       | No metrics found.

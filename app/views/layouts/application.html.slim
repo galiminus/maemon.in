@@ -20,23 +20,24 @@ html ng-app="maytricsApp"
             img.img-circle ng-src="{{user.avatar}}"
             span editable-text="user.name" onaftersave="updateUser(user)"
               |{{user.name}}
-          .navbar-brand.logo ng-hide="user"
-            span
-              | M
-              span.sep
-              | A
-              span.sep
-              | Y
-              span.sep
-              | T
-              span.sep
-              | R
-              span.sep
-              | I
-              span.sep
-              | C
-              span.sep
-              | S
+          - if on_home?
+            .navbar-brand.logo ng-hide="user"
+              span
+                | M
+                span.sep
+                | A
+                span.sep
+                | Y
+                span.sep
+                | T
+                span.sep
+                | R
+                span.sep
+                | I
+                span.sep
+                | C
+                span.sep
+                | S
         ul.navbar-right.list-inline ng-show="!currentUser"
           li.navbar-btn.google-signin-btn
             a.btn.btn-info.btn-lg.btn-block ng-href="/auth/google_oauth2" target="_self" Sign-in with google

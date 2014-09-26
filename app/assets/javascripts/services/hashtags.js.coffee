@@ -8,6 +8,6 @@ angular.module("maytricsApp").service "Hashtags",
       hashtags = [].concat (metrics.map (metric) -> extract(metric))...
       hashtags = hashtags.filter (metric) -> metric != null
       hashtagsDict = {}
-      hashtagsDict[hashtag] = hashtag for hashtag in hashtags
+      hashtagsDict[hashtag] = hashtag.substr(1) for hashtag in hashtags
       value for _, value of hashtagsDict
 ]
