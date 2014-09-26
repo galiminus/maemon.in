@@ -65,5 +65,9 @@ gem 'rails-assets-angular-xeditable'
 gem 'rails-assets-angular-encode-uri', '~> 1.0'
 gem 'rails-assets-angucomplete-alt'
 
+gem 'angular-rails-templates'
+
+gem 'high_voltage'
+
 gem 'textacular', '~> 3.0'
 gem 'friendly_id'

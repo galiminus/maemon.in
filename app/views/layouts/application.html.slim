@@ -37,9 +37,9 @@ html ng-app="maytricsApp"
               | C
               span.sep
               | S
-        ul.navbar-right.list-inline ng-if="!currentUser && user"
+        ul.navbar-right.list-inline ng-show="!currentUser"
           li.navbar-btn.google-signin-btn
-            a.btn.btn-info.btn-lg.btn-block href="/auth/google_oauth2" Sign-in with google
+            a.btn.btn-info.btn-lg.btn-block ng-href="/auth/google_oauth2" target="_self" Sign-in with google
         ul.navbar-right.list-inline ng-show="currentUser"
           li.btn.btn-lg.navbar-btn.btn-default
             a ng-href=""
@@ -51,20 +51,19 @@ html ng-app="maytricsApp"
             a ng-href="#/{{currentUser.id}}"
               span.glyphicon.glyphicon-user
           li.btn.btn-lg.navbar-btn.btn-default
-            a ng-href="/signout"
+            a ng-href="/signout" target="_self"
               span.glyphicon.glyphicon-log-out
         form.navbar-form.navbar-right.user-search ng-show="currentUser"
           angucomplete-alt id="search" placeholder="Search members" remote-url="/users.json?q=" remote-url-data-field="users" title-field="name" image-field="avatar" pause="400" minlength="1" selected-object="goToUser" search-fields="name"
 
     = yield
-    .ng-view
     .footer
       .container
         .row
           ul.list-inline.col-md-12
             li
-              a href="http://phorque.it" About phorque
+              a ng-href="http://phorque.it" About phorque
             li
               span.glyphicon.glyphicon-chevron-right
             li
-              a href="https://github.com/phorque/maytrics" API documentation
+              a ng-href="https://github.com/phorque/maytrics" API documentation

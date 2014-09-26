@@ -1,5 +1,6 @@
 app = angular.module("maytricsApp",
   [
+    "templates"
     "xeditable"
     "ngRoute"
     "ngAnimate"
@@ -18,6 +19,10 @@ app.config ['$routeProvider', ($routeProvider) ->
       templateUrl: "metrics.html"
       controller: "MetricsController"
 ]
+app.config ['$locationProvider', ($locationProvider) ->
+  $locationProvider.html5Mode(true);
+]
+
 app.run ['editableThemes', (editableThemes) ->
   editableThemes.bs3.submitTpl ='<span></span>'
   editableThemes.bs3.cancelTpl ='<span></span>'

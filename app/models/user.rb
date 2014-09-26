@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   extend FriendlyId
-  friendly_id :name, use: :slugged
+  friendly_id :name, use: [:slugged, :history]
 
   has_many :metrics
   has_attachment  :avatar, accept: [:jpg, :png, :gif]
@@ -18,5 +18,9 @@ class User < ActiveRecord::Base
 
       user.save!
     end
+  end
+
+  def should_generate_new_friendly_id?
+    name_changed? || super
   end
 end
