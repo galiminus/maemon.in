@@ -37,6 +37,7 @@ end
 
 group :production do
   gem "rails_12factor"
+  gem 'heroku-deflater'
 end
 
 # auth using google
