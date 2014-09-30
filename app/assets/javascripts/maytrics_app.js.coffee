@@ -6,7 +6,6 @@ app = angular.module("maytricsApp",
     "ngAnimate"
     "rt.encodeuri"
     "angucomplete-alt"
-    "infinite-scroll"
   ])
 app.config ['$routeProvider', ($routeProvider) ->
   $routeProvider

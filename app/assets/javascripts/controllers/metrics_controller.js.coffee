@@ -35,13 +35,14 @@ angular.module("maytricsApp").controller 'MetricsController',
           else
             Metrics.update($scope.currentUser.id, metric.id, metric)
 
+        $scope.perPage = 15
         $scope.loadViewport = (page) ->
-          perPage = 21
-          $scope.metricsViewport = $scope.metrics[0..((page + 1) * perPage - 1)]
+          $scope.metricsViewport = $scope.metrics[0..((page + 1) * $scope.perPage - 1)]
+          console.log $scope.metricsViewport.length
 
         $scope.page = 0
         $scope.loadMore = ->
-          $scope.page++
           $scope.loadViewport $scope.page
+          $scope.page++
         $scope.loadMore()
 ]

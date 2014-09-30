@@ -65,7 +65,6 @@ gem "rails-assets-angular-animate"
 gem 'rails-assets-angular-xeditable'
 gem 'rails-assets-angular-encode-uri', '~> 1.0'
 gem 'rails-assets-angucomplete-alt'
-gem 'rails-assets-ngInfiniteScroll', '~> 1.1.2'
 gem 'angular-rails-templates'
 
 gem 'high_voltage'
