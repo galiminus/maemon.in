@@ -1,4 +1,4 @@
-angular.module("maytricsApp").directive "metric", ["$parse", ($parse) ->
+angular.module("maytricsApp").directive "metric", ["$parse", "Hashtags", ($parse, Hastags) ->
   restrict: "E"
   templateUrl: "metric.html"
   link: (scope, element, attributes) ->
@@ -8,10 +8,29 @@ angular.module("maytricsApp").directive "metric", ["$parse", ($parse) ->
     scope.$watch attributes.editableIf, (value) ->
       scope.editable = value
 
+
+    updateColor = ->
+      metricHashtags = Hastags.extract(scope.metric)
+
+      scope.colorClass = "color-0"
+      if metricHashtags
+        position = scope.hashtags.indexOf(metricHashtags[0].substr(1)) + 1
+        scope.colorClass = "color-#{position}"
+
     scope.$watch attributes.metric, (metric) ->
-      if metric
-        scope.metric = metric
-        scope.resetValue()
+      return unless metric
+
+      scope.metric = metric
+
+      updateColor()
+      scope.resetValue()
+    , true
+
+    scope.$watch "hashtags", (hashtags) ->
+      return unless hashtags
+
+      updateColor()
+    , true
 
     scope.updateTmpValue = (value) ->
       scope.tmpValue = value

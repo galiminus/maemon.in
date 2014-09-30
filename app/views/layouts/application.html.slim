@@ -55,9 +55,9 @@ html ng-app="maytricsApp"
             a.btn.btn-lg.navbar-btn.btn-default ng-href="/signout" target="_self"
               span.glyphicon.glyphicon-log-out
 
-        ul.navbar-right.list-inline.search-nav
+        ul.navbar-right.list-inline.search-nav ng-show="currentUser"
           li
-            form.navbar-form.user-search ng-show="currentUser"
+            form.navbar-form.user-search
               angucomplete-alt id="search" placeholder="Search members" remote-url="/users.json?q=" remote-url-data-field="users" title-field="name" image-field="avatar" pause="400" minlength="1" selected-object="goToUser" search-fields="name"
           li
             button.btn.btn-lg.navbar-btn.btn-default

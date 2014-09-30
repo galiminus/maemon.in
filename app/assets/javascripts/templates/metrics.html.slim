@@ -16,7 +16,7 @@
   .row
     .col-md-4 ng-repeat="_ in [1, 2, 3]"
       .row
-        metric.col-md-12 metric="card" editable-if="user.id == currentUser.id" on-metric-update="update(card)" on-metric-delete="delete(card)" ng-repeat="card in metrics|filter:search" ng-if="$index % 3 == $parent.$index"
+        metric.col-md-12 metric="card" editable-if="user.id == currentUser.id" on-metric-update="update(card)" on-metric-delete="delete(card)" hashtags="hashtags" ng-repeat="card in metrics|filter:search" ng-if="$index % 3 == $parent.$index"
 
   .row.row-centered
     p.col-md-6.col-md-offset-3.text-center.no-metrics-message ng-show="metrics.length == 0"

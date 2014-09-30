@@ -9,5 +9,5 @@ angular.module("maytricsApp").service "Hashtags",
       hashtags = hashtags.filter (metric) -> metric != null
       hashtagsDict = {}
       hashtagsDict[hashtag] = hashtag.substr(1) for hashtag in hashtags
-      value for _, value of hashtagsDict
+      (value for _, value of hashtagsDict).sort()
 ]
