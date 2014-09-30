@@ -37,6 +37,7 @@ angular.module("maytricsApp").directive "metric", ["$parse", "Hashtags", ($parse
 
     scope.updateMetric = (metric) ->
       scope.showOptions = false
+      scope.inEdit = false
       scope.onMetricUpdate(scope)
 
     scope.setValue = (value) ->

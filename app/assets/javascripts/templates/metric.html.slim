@@ -1,14 +1,19 @@
-.panel.panel-default ng-init="showOptions = false"
-  .panel-heading.editable ng-show="editable" ng-click="showOptions = !showOptions" ng-class="colorClass"
-    .panel-title
+.panel.panel-default ng-init="showOptions = false; inEdit = false"
+  .panel-heading.editable ng-show="editable" ng-class="colorClass"
+    .panel-title ng-click="inEdit = !inEdit"
       b.metric-name editable-text="metric.name" onaftersave="updateMetric(metric)" ng-show="editable"
         | {{metric.name}}
+    button.btn ng-hide="inEdit || showOptions" ng-click="showOptions = true"
+      span.glyphicon.glyphicon-chevron-down
+    button.btn ng-hide="inEdit || !showOptions" ng-click="showOptions = false"
+      span.glyphicon.glyphicon-chevron-up
+    .clearfix
   .panel-heading ng-hide="editable"
     .panel-title
       b.metric-name
         | {{metric.name}}
   .panel-body
-    ul.list-inline.list-unstyled.options.options-dropdown.pull-right ng-show="showOptions"
+    ul.list-inline.list-unstyled.options.options-dropdown.pull-right ng-show="!inEdit && showOptions"
       li
         button.btn.btn-link ng-click="deleteMetric()" delete
     ul.list-inline.pull-left.metric-value ng-mouseenter="resetValue()" ng-mouseleave="resetValue()"
