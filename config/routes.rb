@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show, :index, :create, :update], constraints: { format: /json/ }  do
     resources :metrics, only: [:show, :index, :create, :update, :destroy], module: :users
+    resources :relationships, only: [:show, :index, :create, :destroy], module: :users
   end
   resource :user, controller: 'users', constraints: { format: /json/ }
 

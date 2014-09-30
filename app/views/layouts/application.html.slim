@@ -11,12 +11,12 @@ html ng-app="maytricsApp"
     .navbar.navbar-default.navbar-fixed-top.navbar-inverse
       .container
         .navbar-header
-          .navbar-brand.user ng-show="user.id != currentUser.id"
+          .navbar-brand.user ng-show="!isMe()"
             span
               img.img-circle ng-src="{{user.avatar}}"
             span
               |{{user.name}}
-          .navbar-brand.user ng-show="user.id == currentUser.id"
+          .navbar-brand.user ng-show="isMe()"
             img.img-circle ng-src="{{user.avatar}}"
             span editable-text="user.name" onaftersave="updateUser(user)"
               |{{user.name}}
@@ -41,22 +41,33 @@ html ng-app="maytricsApp"
         ul.navbar-right.list-inline ng-show="!currentUser"
           li.navbar-btn.google-signin-btn
             a.btn.btn-info.btn-lg.btn-block ng-href="/auth/google_oauth2" target="_self" Sign-in with google
-        ul.navbar-right.list-inline ng-show="currentUser"
-          li.btn.btn-lg.navbar-btn.btn-default
-            a ng-href=""
-              span.glyphicon.glyphicon-chevron-down
-          li.btn.btn-lg.navbar-btn.btn-default
-            a ng-href=""
+        ul.navbar-right.list-inline.user-nav ng-show="currentUser"
+          li
+            a.btn.btn-lg.navbar-btn.btn-default ng-href=""
+              span.glyphicon.glyphicon-cog
+          li
+            a.btn.btn-lg.navbar-btn.btn-default ng-href=""
               span.glyphicon.glyphicon-bell
-          li.btn.btn-lg.navbar-btn.btn-default
-            a ng-href="#/{{currentUser.id}}"
+          li
+            a.btn.btn-lg.navbar-btn.btn-default ng-href="/{{currentUser.id}}"
               span.glyphicon.glyphicon-user
-          li.btn.btn-lg.navbar-btn.btn-default
-            a ng-href="/signout" target="_self"
+          li
+            a.btn.btn-lg.navbar-btn.btn-default ng-href="/signout" target="_self"
               span.glyphicon.glyphicon-log-out
-        form.navbar-form.navbar-right.user-search ng-show="currentUser"
-          angucomplete-alt id="search" placeholder="Search members" remote-url="/users.json?q=" remote-url-data-field="users" title-field="name" image-field="avatar" pause="400" minlength="1" selected-object="goToUser" search-fields="name"
 
+        ul.navbar-right.list-inline.search-nav
+          li
+            form.navbar-form.user-search ng-show="currentUser"
+              angucomplete-alt id="search" placeholder="Search members" remote-url="/users.json?q=" remote-url-data-field="users" title-field="name" image-field="avatar" pause="400" minlength="1" selected-object="goToUser" search-fields="name"
+          li
+            button.btn.btn-lg.navbar-btn.btn-default
+              span.glyphicon.glyphicon-chevron-down
+
+        ul.navbar-right.list-inline.follow-nav ng-show="loaded && !isMe()"
+          li ng-show="relationship"
+            button.btn.btn-lg.navbar-btn.btn-default ng-click="unfollow(user)" Unfollow
+          li ng-show="!relationship"
+            button.btn.btn-lg.navbar-btn.btn-success ng-click="follow(user)" Follow
     = yield
     .footer
       .container
