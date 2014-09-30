@@ -1,11 +1,11 @@
 .panel.panel-default ng-init="showOptions = false; inEdit = false"
-  .panel-heading.editable ng-show="editable" ng-class="colorClass"
+  .panel-heading.editable ng-show="editable" ng-class="colorClass" ng-click="showOptions = !showOptions"
     .panel-title ng-click="inEdit = !inEdit"
       b.metric-name editable-text="metric.name" onaftersave="updateMetric(metric)" ng-show="editable"
         | {{metric.name}}
-    button.btn ng-hide="inEdit || showOptions" ng-click="showOptions = true"
+    button.btn ng-hide="inEdit || showOptions"
       span.glyphicon.glyphicon-chevron-down
-    button.btn ng-hide="inEdit || !showOptions" ng-click="showOptions = false"
+    button.btn ng-hide="inEdit || !showOptions"
       span.glyphicon.glyphicon-chevron-up
     .clearfix
   .panel-heading ng-hide="editable"
