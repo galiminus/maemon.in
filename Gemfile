@@ -69,5 +69,8 @@ gem 'angular-rails-templates'
 
 gem 'high_voltage'
 
-gem 'textacular', '~> 3.0'
 gem 'friendly_id'
+
+# full-text search
+gem 'elasticsearch-model'
+gem 'elasticsearch-rails'

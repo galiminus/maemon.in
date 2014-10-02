@@ -1,9 +1,10 @@
 angular.module("maytricsApp").service "Metrics",
   ["$http", ($http) ->
-    all: (userId) ->
+    all: (userId, params) ->
       $http
         method: "GET"
         url: "/users/#{userId}/metrics.json"
+        params: params
 
     create: (userId, data) ->
       $http

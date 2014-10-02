@@ -4,7 +4,7 @@ class Users::MetricsController < ApplicationController
   end
 
   def index
-    respond_with user.metrics
+    respond_with user.metrics.search(search_params).records
   end
 
   def create
@@ -29,8 +29,19 @@ class Users::MetricsController < ApplicationController
   end
 
   def metric
-    Metric.find(params[:id]).tap do |metric|
+    User::Metric.find(params[:id]).tap do |metric|
       authorize metric
+    end
+  end
+
+  def search_params
+    {}.tap do |search|
+      search[:query] =
+        if params[:query].present?
+          { fuzzy: { name: params[:query] } }
+        else
+          { match_all: { } }
+        end
     end
   end
 
