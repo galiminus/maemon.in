@@ -3,7 +3,6 @@ app = angular.module("maytricsApp",
     "templates"
     "xeditable"
     "ngRoute"
-    "ngAnimate"
     "rt.encodeuri"
     "angucomplete-alt"
   ])

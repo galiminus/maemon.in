@@ -150,8 +150,6 @@ GEM
     rails-assets-angucomplete-alt (0.0.22)
       rails-assets-angular (>= 1.2.0)
     rails-assets-angular (1.2.24)
-    rails-assets-angular-animate (1.2.24)
-      rails-assets-angular (= 1.2.24)
     rails-assets-angular-encode-uri (1.0.0)
       rails-assets-angular
     rails-assets-angular-route (1.2.24)
@@ -262,7 +260,6 @@ DEPENDENCIES
   rails (= 4.1.5)
   rails-assets-angucomplete-alt
   rails-assets-angular (~> 1.2.6)
-  rails-assets-angular-animate
   rails-assets-angular-encode-uri (~> 1.0)
   rails-assets-angular-route
   rails-assets-angular-xeditable

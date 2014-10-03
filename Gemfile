@@ -61,7 +61,6 @@ gem 'cloudinary'
 gem "bootstrap-sass"
 gem "rails-assets-angular", '~> 1.2.6'
 gem "rails-assets-angular-route"
-gem "rails-assets-angular-animate"
 gem 'rails-assets-angular-xeditable'
 gem 'rails-assets-angular-encode-uri', '~> 1.0'
 gem 'rails-assets-angucomplete-alt'
