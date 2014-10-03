@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   end
 
   def index
-    respond_with User.search(search_params)
+    respond_with users, serialize: PageSerializer
   end
 
   def create
@@ -24,6 +24,18 @@ class UsersController < ApplicationController
 
   protected
 
+  def users
+    User.search(search_params).page(page).per(per).records
+  end
+
+  def page
+    params[:page] || 1
+  end
+
+  def per
+    params[:per] || 12
+  end
+
   def user
     (params[:id] ? User.friendly.find(params[:id]) : current_user).tap do |user|
       authorize user
@@ -31,7 +43,7 @@ class UsersController < ApplicationController
   end
 
   def search_params
-    params.require(:q)
+    { query: { fuzzy: { name: params[:query] } } }
   end
 
   def user_params

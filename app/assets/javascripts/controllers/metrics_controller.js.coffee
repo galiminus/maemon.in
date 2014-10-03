@@ -1,21 +1,20 @@
 angular.module("maytricsApp").controller 'MetricsController',
-  ["$scope", "$routeParams", "$location", "Metrics", "Users", "Hashtags",
-    ($scope, $routeParams, $location, Metrics, Users, Hashtags, $filter) ->
+  ["$scope", "$routeParams", "$location", "Metrics", "Users",
+    ($scope, $routeParams, $location, Metrics, Users, $filter) ->
       $scope.user =
         id: $routeParams.userId
       $scope.loadUser $scope.user.id
 
-      $scope.search =
-        query: if $routeParams.search then "##{$routeParams.search}" else ""
-        page: 1
-        per_page: 21
-      $scope.$watch "search", ->
+      loadMetricsPage = (page) ->
+        $scope.metricsPages ||= []
+        $scope.search =
+          query: $routeParams.search
+          page: page
+          per: 15
         Metrics.all($routeParams.userId, $scope.search).then (response) ->
-          $scope.metrics = response.data.metrics
-          $scope.$watch "metrics", ->
-            $scope.hashtags = Hashtags.extractAll $scope.metrics
-          , true
-      , true
+          $scope.metricsPages[page - 1] = response.data.metrics
+
+      $scope.$watch "search", (-> loadMetricsPage 1), true
 
       $scope.create = ->
         metric =
@@ -23,7 +22,7 @@ angular.module("maytricsApp").controller 'MetricsController',
           value: 5
 
         Metrics.create($scope.currentUser.id, metric).then (response) ->
-          $scope.metrics.unshift response.data.metric
+          $scope.metricsPages[0].unshift response.data.metric
 
       $scope.delete = (metric) ->
         Metrics.delete($scope.currentUser.id, metric.id).then ->

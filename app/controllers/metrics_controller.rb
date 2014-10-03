@@ -1,10 +1,10 @@
-class Users::MetricsController < ApplicationController
+class MetricsController < ApplicationController
   def show
     respond_with metric
   end
 
   def index
-    respond_with user.metrics.search(search_params).records
+    respond_with metrics, serializer: PageSerializer
   end
 
   def create
@@ -29,13 +29,26 @@ class Users::MetricsController < ApplicationController
   end
 
   def metric
-    User::Metric.find(params[:id]).tap do |metric|
+    Metric.find(params[:id]).tap do |metric|
       authorize metric
     end
   end
 
+  def metrics
+    user.metrics.search(search_params).page(page).per(per).records
+  end
+
+  def page
+    params[:page] || 1
+  end
+
+  def per
+    params[:per] || 15
+  end
+
   def search_params
     {}.tap do |search|
+      search[:sort] = { updated_at: { order: :desc } }
       search[:query] =
         if params[:query].present?
           { fuzzy: { name: params[:query] } }

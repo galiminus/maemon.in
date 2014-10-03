@@ -58,7 +58,7 @@ html ng-app="maytricsApp"
         ul.navbar-right.list-inline.search-nav ng-show="currentUser"
           li
             form.navbar-form.user-search
-              angucomplete-alt id="search" placeholder="Search members" remote-url="/users.json?q=" remote-url-data-field="users" title-field="name" image-field="avatar" pause="400" minlength="1" selected-object="goToUser" search-fields="name"
+              angucomplete-alt id="search" placeholder="Search members" remote-url="/users.json?query=" remote-url-data-field="users" title-field="name" image-field="avatar" pause="400" minlength="1" selected-object="goToUser" search-fields="name"
           li
             button.btn.btn-lg.navbar-btn.btn-default
               span.glyphicon.glyphicon-chevron-down

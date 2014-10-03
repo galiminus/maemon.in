@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+  include Elasticsearch::Model
+  include Elasticsearch::Model::Callbacks
+
   extend FriendlyId
   friendly_id :name, use: [:slugged, :history]
 

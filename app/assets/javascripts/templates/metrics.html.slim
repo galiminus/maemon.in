@@ -4,19 +4,15 @@
       .row
         .form-group.col-md-4
           input.input-lg.form-control name="q" type="text" placeholder="Filter" value="" ng-model="search.query"
-        ul.col-md-5.hashtags.list-inline.list-unstyled
-          li ng-repeat="hashtag in hashtags"
-            a ng-href="/{{user.id}}/{{hashtag|encodeUri}}"
-              | \#{{hashtag}}
-        .col-md-3.add-metric
+        .col-md-3.col-md-offset-5.add-metric
           a.btn.btn-lg.btn-primary.btn-block.btn-add-metric ng-show="user.id == currentUser.id" ng-click="create()"
             span.glyphicon.glyphicon-plus
             | &nbsp; Add a new metric
-.container
+.container ng-repeat="metricsPage in metricsPages"
   .row
     .col-md-4 ng-repeat="_ in [1, 2, 3]"
       .row
-        metric.col-md-12 metric="card" editable-if="user.id == currentUser.id" on-metric-update="update(card)" on-metric-delete="delete(card)" hashtags="hashtags" ng-repeat="card in metrics" ng-if="$index % 3 == $parent.$index"
+        metric.col-md-12 metric="card" editable-if="user.id == currentUser.id" on-metric-update="update(card)" on-metric-delete="delete(card)" ng-repeat="card in metricsPage" ng-if="$index % 3 == $parent.$index"
   .row
     .col-md-12 ng-show="metrics.length > 0 && (page * perPage) < metrics.length"
 

@@ -1,13 +1,12 @@
 angular.module("maytricsApp").service "Hashtags",
   [ ->
-    extract = (metric) ->
+    extract: (metric) ->
       metric.name.match(/#\w+/g);
 
-    extract: extract
-    extractAll: (metrics) ->
-      hashtags = [].concat (metrics.map (metric) -> extract(metric))...
-      hashtags = hashtags.filter (metric) -> metric != null
-      hashtagsDict = {}
-      hashtagsDict[hashtag] = hashtag.substr(1) for hashtag in hashtags
-      (value for _, value of hashtagsDict).sort()
+    getColor: (hashtag) ->
+      hash = 5381;
+
+      for c in hashtag
+        hash = ((hash << 5) + hash) + hashtag.charCodeAt(c)
+      (hash & 0x00FFFFFF).toString(16)
 ]

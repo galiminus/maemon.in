@@ -71,6 +71,9 @@ gem 'high_voltage'
 
 gem 'friendly_id'
 
+gem 'kaminari'
+
 # full-text search
 gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
+

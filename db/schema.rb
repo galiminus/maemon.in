@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141001110648) do
+ActiveRecord::Schema.define(version: 20141003061523) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 20141001110648) do
   add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
   add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
 
-  create_table "user_metrics", force: true do |t|
+  create_table "metrics", force: true do |t|
     t.string   "name"
     t.integer  "value"
     t.datetime "created_at"
@@ -53,16 +53,16 @@ ActiveRecord::Schema.define(version: 20141001110648) do
     t.integer  "user_id"
   end
 
-  add_index "user_metrics", ["user_id"], name: "index_user_metrics_on_user_id", using: :btree
+  add_index "metrics", ["user_id"], name: "index_metrics_on_user_id", using: :btree
 
-  create_table "user_relationships", force: true do |t|
+  create_table "relationships", force: true do |t|
     t.integer  "user_id"
     t.integer  "followed_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "user_relationships", ["user_id", "followed_id"], name: "index_user_relationships_on_user_id_and_followed_id", unique: true, using: :btree
+  add_index "relationships", ["user_id", "followed_id"], name: "index_relationships_on_user_id_and_followed_id", unique: true, using: :btree
 
   create_table "users", force: true do |t|
     t.string   "provider"

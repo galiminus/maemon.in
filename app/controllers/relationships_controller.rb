@@ -1,4 +1,4 @@
-class Users::RelationshipsController < ApplicationController
+class RelationshipsController < ApplicationController
   def show
     respond_with relationship
   end

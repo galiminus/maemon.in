@@ -1,17 +1,13 @@
-class User::MetricPolicy < ApplicationPolicy
+class RelationshipPolicy < ApplicationPolicy
   def show?
-    true
-  end
-
-  def index?
-    true
-  end
-
-  def create?
     user.id == resource.user_id
   end
 
-  def update?
+  def index?
+    user.id == resource.user_id
+  end
+
+  def create?
     user.id == resource.user_id
   end
 

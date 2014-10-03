@@ -1,5 +1,5 @@
 .panel.panel-default ng-init="showOptions = false; inEdit = false"
-  .panel-heading.editable ng-show="editable" ng-class="colorClass" ng-click="showOptions = !showOptions"
+  .panel-heading.editable ng-show="editable" ng-click="showOptions = !showOptions" ng-style="style"
     .panel-title ng-click="inEdit = !inEdit"
       b.metric-name editable-text="metric.name" onaftersave="updateMetric(metric)" ng-show="editable"
         | {{metric.name}}
