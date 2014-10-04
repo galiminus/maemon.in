@@ -55,6 +55,7 @@ class MetricsController < ApplicationController
         else
           { match_all: { } }
         end
+      search[:filter] = { term: { user_id: user.id } }
     end
   end
 

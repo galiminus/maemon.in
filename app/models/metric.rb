@@ -9,8 +9,7 @@ class Metric < ActiveRecord::Base
 
   def as_indexed_json(options={})
     self.as_json({
-      only: [:name, :updated_at],
-      include: { user: { only: [:friendly_id] } }
+      only: [:name, :updated_at, :user_id],
     })
   end
 end

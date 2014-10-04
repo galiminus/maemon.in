@@ -5,33 +5,38 @@ angular.module("maytricsApp").controller 'MetricsController',
         id: $routeParams.userId
       $scope.loadUser $scope.user.id
 
-      loadMetricsPage = (page) ->
+      $scope.loadMetricsPage = (page) ->
         $scope.metricsPages ||= []
         $scope.search =
-          query: $routeParams.search
+          query: $scope.query || $routeParams.search
           page: page
           per: 15
         Metrics.all($routeParams.userId, $scope.search).then (response) ->
-          $scope.metricsPages[page - 1] = response.data.metrics
+          $scope.totalPages = response.data.meta.pagination.total_pages
+          $scope.totalCount = response.data.meta.pagination.total_count
 
-      $scope.$watch "search", (-> loadMetricsPage 1), true
+          if page <= $scope.totalPages
+            $scope.metricsPages[page - 1] = response.data
+
+      $scope.$watch "query", (-> $scope.loadMetricsPage 1), true
 
       $scope.create = ->
         metric =
           name: "New metric"
           value: 5
 
+        $scope.metricsPages[0].metrics.unshift metric
         Metrics.create($scope.currentUser.id, metric).then (response) ->
-          $scope.metricsPages[0].unshift response.data.metric
+          metric.id = response.data.metric.id
 
-      $scope.delete = (metric) ->
+      $scope.delete = (page, metric) ->
         Metrics.delete($scope.currentUser.id, metric.id).then ->
-          $scope.metrics =
-            (element for element in $scope.metrics when element != metric)
+          page.metrics =
+            (element for element in page.metrics when element != metric)
 
-      $scope.update = (metric) ->
+      $scope.update = (metricsPage, metric) ->
         if (metric.name == "")
-          $scope.delete metric
+          $scope.delete metricsPage, metric
         else
           Metrics.update($scope.currentUser.id, metric.id, metric)
 ]

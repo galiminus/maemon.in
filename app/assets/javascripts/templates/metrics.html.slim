@@ -3,21 +3,33 @@
     form.col-md-12.form.toolbar
       .row
         .form-group.col-md-4
-          input.input-lg.form-control name="q" type="text" placeholder="Filter" value="" ng-model="search.query"
+          input.input-lg.form-control name="q" type="text" placeholder="Filter" value="" ng-model="query"
         .col-md-3.col-md-offset-5.add-metric
           a.btn.btn-lg.btn-primary.btn-block.btn-add-metric ng-show="user.id == currentUser.id" ng-click="create()"
             span.glyphicon.glyphicon-plus
             | &nbsp; Add a new metric
 .container ng-repeat="metricsPage in metricsPages"
+  .row ng-if="metricsPages.length != $index && $index != 0"
+    .col-md-12
+      .text-center.page-information
+        | Page {{$index + 1}} of {{totalPages}}
+
   .row
-    .col-md-4 ng-repeat="_ in [1, 2, 3]"
+    .col-md-4 ng-repeat="column in [0, 1, 2]"
       .row
-        metric.col-md-12 metric="card" editable-if="user.id == currentUser.id" on-metric-update="update(card)" on-metric-delete="delete(card)" ng-repeat="card in metricsPage" ng-if="$index % 3 == $parent.$index"
+        metric.col-md-12 metric="card" editable-if="user.id == currentUser.id" on-metric-update="update(metricsPage, card)" on-metric-delete="delete(metricsPage, card)" ng-repeat="card in metricsPage.metrics" ng-if="$index % 3 == column"
+
   .row
     .col-md-12 ng-show="metrics.length > 0 && (page * perPage) < metrics.length"
 
+  .row ng-if="metricsPages.length == ($index + 1) && metricsPages.length != totalPages"
+    .col-md-12
+      button.btn.btn-block.text-center.load-more ng-click="loadMetricsPage(metricsPages.length + 1)"
+        | Load more
+
+.container
   .row.row-centered
-    p.col-md-6.col-md-offset-3.text-center.no-metrics-message ng-show="metrics.length == 0"
+    p.col-md-6.col-md-offset-3.text-center.no-metrics-message ng-show="totalPages == 0"
       | This user has no metric yet.
     p.col-md-6.col-md-offset-3.text-center.no-metrics-message ng-show="metrics.length > 0 && metrics.length == 0"
       | No metrics found.
