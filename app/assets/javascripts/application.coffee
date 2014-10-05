@@ -2,7 +2,6 @@
 #= require angular-route
 #= require angular-xeditable
 #= require angular-encode-uri
-#= require angucomplete-alt/angucomplete-alt
 #= require angular-rails-templates
 #= require maytrics_app
 #= require_tree ./templates

@@ -16,32 +16,31 @@
                 display: inline-block;
             }
         }
-        form.editable-wrap {
-            height: 60px;
-            input {
-                border: none;
-                color: #eee;
-                background-color: #333;
-                padding: 0px;
-                box-shadow: none;
-                font-size: 170%;
-                vertical-align: top;
-                height: 52px;
-            }
+        form.editable-wrap input {
+            border: none;
+            color: #eee;
+            background-color: #333;
+            padding: 0px;
+            box-shadow: none;
+            font-size: 170%;
+            vertical-align: top;
+            height: 64px;
         }
         &.user {
             padding: 0px 15px;
-            line-height: 56px;
             img {
                 margin-right: 10px;
                 margin-top: 8px;
                 float: left;
             }
+            span {
+                line-height: 64px;
+            }
         }
     }
     form.user-search {
         margin: 11px 0 0 0;
-        padding: 0 0 0 6px;
+        padding: 0;
         input {
             border: none;
             height: 43px;
@@ -52,7 +51,7 @@
             z-index: 1;
             background: #444;
             color: #fff;
-            width: 260px;
+            width: 250px;
 
             transition: background-color 0.1s ease;
             &:focus {
@@ -66,27 +65,23 @@
         li {
             padding-right: 0px;
             padding-left: 10px;
-
             .navbar-btn {
                 margin-bottom: 0px;
-                border: none;
                 margin-top: 11px;
-                font-size: 15px;
-                color: #eee;
-                padding: 14px 21px 10px 21px;
-                display: inline-block;
-                transition: background-color 0.2s ease;
             }
         }
-
+        .navbar-btn.google-signin-btn {
+            margin-bottom: 0px;
+        }
         &.follow-nav .navbar-btn {
             padding-top: 12px;
             padding-bottom: 12px;
-            margin-right: 6px;
+            margin-right: 16px;
             font-weight: bold;
             width: 100px;
         }
         &.search-nav {
+            position: relative;
             margin-right: 6px;
             li {
                 padding-left: 0px;
@@ -94,41 +89,42 @@
             .navbar-btn {
                 margin-top: -1px;
             }
-        }
-    }
+            .dropdown {
+                position: absolute;
+                width: 100%;
+                background: #fff;
+                top: 100%;
+                left: 0;
+                ul {
+                    border-bottom: 3px solid #226baa;
+                    padding-left: 0px;
+                    box-shadow: 0px 1px 3px #333;
+                    li a {
+                        display: block;
+                        padding: 10px;
+                        cursor: pointer;
+                        color: #222;
 
-    .angucomplete-holder {
-        position: relative;
+                        &:hover {
+                            background: #428bca;
+                            color: #fff;
+                            text-decoration: none;
+                        }
 
-        .angucomplete-dropdown {
-            background: #fff;
-            position: absolute;
-            width: 100%;
-            z-index: 0;
-            border-bottom: 3px solid #226baa;
-            .angucomplete-searching {
-                padding: 10px;
-            }
-            .angucomplete-row {
-                padding: 10px;
-                cursor: pointer;
-                &:hover {
-                    background: #428bca;
-                    color: #fff;
-                }
-                .angucomplete-image-holder {
-                    float: left;
-                    img {
-                        border-radius: 100%;
-                        border: 1px solid #333;
+                        .name {
+                            margin-left: 70px;
+                            margin-bottom: 0px;
+                            line-height: 52px;
+                            font-size: 1.2em;
+                        }
+                        .avatar {
+                            float: left;
+                            border-radius: 100%;
+                            border: 1px solid #333;
+                        }
                     }
                 }
-                .angucomplete-title {
-                    margin-left: 60px;
-                    line-height: 50px;
-                }
             }
         }
     }
-
 }

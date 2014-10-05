@@ -4,7 +4,7 @@ class RelationshipsController < ApplicationController
   end
 
   def index
-    respond_with user.followed
+    respond_with followeds, serializer: PageSerializer
   end
 
   def create
@@ -27,7 +27,19 @@ class RelationshipsController < ApplicationController
   end
 
   def followed
-    User.friendly.find params[:id]
+    User.friendly.find(params[:id])
+  end
+
+  def followeds
+    user.followed.page(page).per(per)
+  end
+
+  def page
+    params[:page] || 1
+  end
+
+  def per
+    params[:per] || 10
   end
 
   def relationship

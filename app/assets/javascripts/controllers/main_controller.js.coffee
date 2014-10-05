@@ -38,4 +38,14 @@ angular.module("maytricsApp").controller 'MainController',
     $scope.unfollow = (user) ->
       Relationships.delete($scope.currentUser.id, user.id).then (relationship) ->
         $scope.relationship = false
+
+    $scope.userQuery = ""
+    $scope.$watch "userQuery", (query) ->
+      search =
+        query: query
+        page: 1
+        per: 20
+      Users.all(search).then (response) ->
+        $scope.users = response.data.users
+    , true
 ]

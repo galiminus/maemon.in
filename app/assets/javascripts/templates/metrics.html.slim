@@ -4,16 +4,14 @@
       .row
         .form-group.col-md-4
           input.input-lg.form-control name="q" type="text" placeholder="Filter" value="" ng-model="query"
-        .col-md-3.col-md-offset-5.add-metric
-          a.btn.btn-lg.btn-primary.btn-block.btn-add-metric ng-show="user.id == currentUser.id" ng-click="create()"
+        .col-md-5.col-md-offset-3.text-right
+          button.btn.btn-lg.btn-primary.add-metric ng-show="user.id == currentUser.id" ng-click="create()"
             span.glyphicon.glyphicon-plus
             | &nbsp; Add a new metric
 .container ng-repeat="metricsPage in metricsPages"
   .row ng-if="metricsPages.length != $index && $index != 0"
     .col-md-12
       .text-center.page-information
-        | Page {{$index + 1}} of {{totalPages}}
-
   .row
     .col-md-4 ng-repeat="column in [0, 1, 2]"
       .row
@@ -25,7 +23,7 @@
   .row ng-if="metricsPages.length == ($index + 1) && metricsPages.length != totalPages"
     .col-md-12
       button.btn.btn-block.text-center.load-more ng-click="loadMetricsPage(metricsPages.length + 1)"
-        | Load more
+        | more metrics
 
 .container
   .row.row-centered

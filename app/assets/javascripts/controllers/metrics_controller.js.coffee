@@ -7,17 +7,18 @@ angular.module("maytricsApp").controller 'MetricsController',
 
       $scope.loadMetricsPage = (page) ->
         $scope.metricsPages ||= []
-        $scope.search =
-          query: $scope.query || $routeParams.search
+        search =
+          query: $scope.query
           page: page
           per: 15
-        Metrics.all($routeParams.userId, $scope.search).then (response) ->
+        Metrics.all($routeParams.userId, search).then (response) ->
           $scope.totalPages = response.data.meta.pagination.total_pages
           $scope.totalCount = response.data.meta.pagination.total_count
 
           if page <= $scope.totalPages
             $scope.metricsPages[page - 1] = response.data
 
+      $scope.query = $routeParams.search
       $scope.$watch "query", (-> $scope.loadMetricsPage 1), true
 
       $scope.create = ->

@@ -23,16 +23,17 @@ angular.module("maytricsApp").directive "metric", ["$parse", "Hashtags", ($parse
     , true
 
     scope.updateTmpValue = (value) ->
-      scope.tmpValue = value
+      if scope.inEdit
+        scope.tmpValue = value
 
     scope.updateMetric = (metric) ->
-      scope.showOptions = false
-      scope.inEdit = false
       scope.onMetricUpdate(scope)
 
     scope.setValue = (value) ->
-      scope.metric.value = value
-      scope.onMetricUpdate(scope)
+      if scope.inEdit
+        scope.metric.value = value
+        scope.onMetricUpdate(scope)
+        scope.inEdit = false
 
     scope.deleteMetric = ->
       scope.onMetricDelete(scope)

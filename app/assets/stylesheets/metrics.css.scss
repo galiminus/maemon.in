@@ -18,12 +18,17 @@
 }
 
 .page-information {
-    color: #eee;
-    background: #738892;
+    background: #435862;
+    padding: 0;
+    height: 2px;
 }
 
 .btn.load-more {
     background: #637882;
+    text-transform: uppercase;
+    font-weight: bold;
+
+    transition: background-color 0.2s ease;
     &:hover {
         color: #eee;
         background: #738892;
@@ -31,16 +36,17 @@
 }
 
 .toolbar {
-    input {
+    .form-control {
         border: none;
+        box-shadow: none;
     }
-    .add-metric {
-        padding-right: 18px;
-        .btn {
+    .btn.add-metric {
+        background: #b55;
+        border: none;
+        width: 259px;
+        transition: background 0.2s ease;
+        &:hover {
             background: #c66;
-            margin-left: 8px;
-            width: 100%;
-            border: none;
         }
     }
     margin-bottom: 30px;

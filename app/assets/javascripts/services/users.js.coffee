@@ -1,5 +1,11 @@
 angular.module("maytricsApp").service "Users",
   ["$http", ($http) ->
+    all: (params) ->
+      $http
+        method: "GET"
+        url: "/users.json"
+        params: params
+
     get: (id) ->
       $http
         method: "GET"

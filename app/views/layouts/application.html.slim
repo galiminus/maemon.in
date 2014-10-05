@@ -43,31 +43,42 @@ html ng-app="maytricsApp"
             a.btn.btn-info.btn-lg.btn-block ng-href="/auth/google_oauth2" target="_self" Sign-in with google
         ul.navbar-right.list-inline.user-nav ng-show="currentUser"
           li
-            a.btn.btn-lg.navbar-btn.btn-default ng-href=""
-              span.glyphicon.glyphicon-cog
-          li
-            a.btn.btn-lg.navbar-btn.btn-default ng-href=""
+            a.btn.btn-lg.navbar-btn.btn-default.btn-icon ng-href=""
               span.glyphicon.glyphicon-bell
           li
-            a.btn.btn-lg.navbar-btn.btn-default ng-href="/{{currentUser.id}}"
+            a.btn.btn-lg.navbar-btn.btn-default.btn-icon ng-href="/{{currentUser.id}}"
               span.glyphicon.glyphicon-user
           li
-            a.btn.btn-lg.navbar-btn.btn-default ng-href="/signout" target="_self"
+            a.btn.btn-lg.navbar-btn.btn-default.btn-icon ng-href="/signout" target="_self"
               span.glyphicon.glyphicon-log-out
 
         ul.navbar-right.list-inline.search-nav ng-show="currentUser"
           li
             form.navbar-form.user-search
-              angucomplete-alt id="search" placeholder="Search members" remote-url="/users.json?query=" remote-url-data-field="users" title-field="name" image-field="avatar" pause="400" minlength="1" selected-object="goToUser" search-fields="name"
+              input placeholder="Search members" ng-model="userQuery"
           li
-            button.btn.btn-lg.navbar-btn.btn-default
+            button.btn.btn-lg.navbar-btn.btn-default.btn-icon ng-click="showRelationships = !showRelationships"
               span.glyphicon.glyphicon-chevron-down
+          li.dropdown.users ng-show="users.length > 0"
+            ul.list-unstyled
+              li ng-repeat="user in users"
+                a ng-href="/{{user.id}}"
+                  img.avatar ng-src="{{user.avatar}}"
+                  p.name
+                    | {{user.name}}
+          li.dropdown.followers ng-show="showRelationships"
+            ul.list-unstyled
+              li ng-repeat="relationship in currentUser.relationships"
+                a ng-href="/{{relationship.id}}"
+                  img.avatar ng-src="{{relationship.avatar}}"
+                  p.name
+                    | {{relationship.name}}
 
         ul.navbar-right.list-inline.follow-nav ng-show="loaded && !isMe()"
           li ng-show="relationship"
-            button.btn.btn-lg.navbar-btn.btn-default ng-click="unfollow(user)" Unfollow
+            button.btn.btn-lg.navbar-btn.btn-default.btn-icon ng-click="unfollow(user)" Unfollow
           li ng-show="!relationship"
-            button.btn.btn-lg.navbar-btn.btn-success ng-click="follow(user)" Follow
+            button.btn.btn-lg.navbar-btn.btn-success.btn-icon ng-click="follow(user)" Follow
     = yield
     .footer
       .container

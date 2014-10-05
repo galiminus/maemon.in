@@ -14,6 +14,7 @@
         .panel-title {
             max-width: 290px;
             display: inline-block;
+            cursor: text;
             b.metric-name {
                 font-size: 24px;
                 line-height: 34px;
@@ -41,6 +42,7 @@
             padding: 0px;
             box-shadow: none;
             font-weight: bold;
+            width: 290px;
         }
     }
     .panel-body {
@@ -48,49 +50,26 @@
         padding-left: 15px;
         padding-right: 10px;
 
-        ul.options {
-            padding: 0;
-            margin: 0 0 0 -5px;
-            width: 100%;
-
-            &.options-dropdown.ng-hide-add,
-            &.options-dropdown.ng-hide-remove {
-                -webkit-transition: 0.2s linear all;
-                transition: 0.2s linear all;
-
-                display: block !important;
-                opacity: 1;
-                max-height: 22px;
-            }
-            &.options-dropdown.ng-hide {
-                opacity: 0;
-                max-height: 0px;
-            }
-
-            li {
-                padding-left: 0;
-
-                .btn {
-                    padding: 0;
-                    margin: 0 10px 0 0;
-                }
-            }
-        }
         ul.metric-value {
             padding-top: 8px;
             margin-bottom: 0px;
             cursor: pointer;
             margin-left: 0px;
             li {
-                min-width: 17px;
-                background: #eee;
-                margin-right: 6px;
-                height: 75px;
-                &.selected {
-                    background: #555;
+                padding: 0 3px 0 3px;
+                &:first-child {
+                    padding-left: 0px;
                 }
                 &:last-child {
-                    margin-right: 0px;
+                    padding-right: 0px;
+                }
+                .bar {
+                    min-width: 17px;
+                    background: #eee;
+                    height: 75px;
+                }
+                &.selected .bar {
+                    background: #555;
                 }
             }
         }
@@ -98,6 +77,10 @@
             font-size: 90px;
             line-height: 70px;
             margin-top: 8px;
+            transition: color 0.4s ease;
+            &.in-edit {
+                color: #aaa;
+            }
         }
     }
 }

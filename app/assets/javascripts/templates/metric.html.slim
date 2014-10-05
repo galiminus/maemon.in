@@ -1,23 +1,19 @@
 .panel.panel-default ng-init="showOptions = false; inEdit = false"
-  .panel-heading.editable ng-show="editable" ng-click="showOptions = !showOptions" ng-style="style"
+  .panel-heading.editable ng-show="editable" ng-style="style"
     .panel-title ng-click="inEdit = !inEdit"
       b.metric-name editable-text="metric.name" onaftersave="updateMetric(metric)" ng-show="editable"
         | {{metric.name}}
-    button.btn ng-hide="inEdit || showOptions"
-      span.glyphicon.glyphicon-chevron-down
-    button.btn ng-hide="inEdit || !showOptions"
-      span.glyphicon.glyphicon-chevron-up
+    button.btn ng-click="deleteMetric()"
+      span.glyphicon.glyphicon-remove
     .clearfix
   .panel-heading ng-hide="editable"
     .panel-title
       b.metric-name
         | {{metric.name}}
   .panel-body
-    ul.list-inline.list-unstyled.options.options-dropdown.pull-right ng-show="!inEdit && showOptions"
-      li
-        button.btn.btn-link ng-click="deleteMetric()" delete
-    ul.list-inline.pull-left.metric-value ng-mouseenter="resetValue()" ng-mouseleave="resetValue()"
-      li ng-repeat="value in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]" ng-class="{selected: value <= tmpValue}" ng-mouseover="updateTmpValue(value)" ng-click="setValue(value)"
-        | &nbsp;
-    span.metric.pull-right
+    ul.list-inline.pull-left.metric-value ng-mouseenter="resetValue(); inEdit = true" ng-mouseleave="resetValue(); inEdit = false"
+      li ng-repeat="value in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]" ng-class="{selected: value <= tmpValue}" ng-mouseover="updateTmpValue(value)" ng-click="setValue(value);"
+        .bar
+          | &nbsp;
+    span.metric.pull-right ng-class="{'in-edit': inEdit}"
       | {{tmpValue}}
