@@ -17,7 +17,7 @@ class RelationshipsController < ApplicationController
   end
 
   def destroy
-    respond_with relationship.delete
+    respond_with relationship.destroy
   end
 
   protected

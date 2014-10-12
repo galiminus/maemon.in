@@ -19,7 +19,7 @@ class MetricsController < ApplicationController
   end
 
   def destroy
-    respond_with metric.delete
+    respond_with metric.destroy
   end
 
   protected

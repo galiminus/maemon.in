@@ -55,11 +55,12 @@ html ng-app="maytricsApp"
         ul.navbar-right.list-inline.search-nav ng-show="currentUser"
           li
             form.navbar-form.user-search
-              input placeholder="Search members" ng-model="userQuery"
+              input placeholder="Search members" ng-model="userQuery" ng-blur="userQuery = ''"
           li
-            button.btn.btn-lg.navbar-btn.btn-default.btn-icon ng-click="showRelationships = !showRelationships"
+            button.btn.btn-lg.navbar-btn.btn-default.btn-icon ng-click="showRelationships = !showRelationships" ng-blur="showRelationships = false"
               span.glyphicon.glyphicon-chevron-down
           li.dropdown.users ng-show="users.length > 0"
+            h4 Results for "{{userQuery}}"
             ul.list-unstyled
               li ng-repeat="user in users"
                 a ng-href="/{{user.id}}"
@@ -67,6 +68,7 @@ html ng-app="maytricsApp"
                   p.name
                     | {{user.name}}
           li.dropdown.followers ng-show="showRelationships"
+            h4 Watchlist
             ul.list-unstyled
               li ng-repeat="relationship in currentUser.relationships"
                 a ng-href="/{{relationship.id}}"

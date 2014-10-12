@@ -3,6 +3,7 @@ source 'https://rails-assets.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.5'
+gem 'thin'
 
 # Use SCSS for stylesheets
 gem 'sass-rails'
