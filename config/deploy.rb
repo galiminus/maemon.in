@@ -8,6 +8,8 @@ set :repo_url, 'git@bitbucket.org:phorque/maytrics.git'
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }.call
 
 set :deploy_to, '/home/maytrics'
+set :foreman_env, "/home/maytrics/.env"
+set :use_sudo, false
 
 # Default value for :scm is :git
 # set :scm, :git
@@ -38,8 +40,7 @@ namespace :deploy do
   desc 'Restart application'
   task :restart do
     on roles(:app), in: :sequence, wait: 5 do
-      # Your restart mechanism here, for example:
-      # execute :touch, release_path.join('tmp/restart.txt')
+#      execute :sudo, :service
     end
   end
 
