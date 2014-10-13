@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 source 'https://rails-assets.org'
 
+ruby "2.1.0"
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.5'
 gem 'thin'
@@ -70,3 +72,9 @@ gem 'kaminari'
 gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
 
+gem 'capistrano'
+gem 'capistrano-rails'
+gem 'rvm1-capistrano3', require: false
+
+gem 'foreman'
+gem 'puma'
