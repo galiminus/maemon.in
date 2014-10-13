@@ -43,7 +43,7 @@ class RelationshipsController < ApplicationController
   end
 
   def relationship
-    User::Relationship.find_by_user_id_and_followed_id!(user.id, followed.id).tap do |relationship|
+    Relationship.find_by_user_id_and_followed_id!(user.id, followed.id).tap do |relationship|
       authorize relationship if relationship
     end
   end

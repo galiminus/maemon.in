@@ -17,6 +17,10 @@ role :db,  %w{maytrics@maytrics.phorque.it}
 
 server 'maytrics.phorque.it', user: 'maytrics', roles: %w{web app}, my_property: :my_value
 
+set :default_env, {
+  "DATABASE_URL" => "postgres://maytrics@localhost/maytrics"
+}
+
 
 # Custom SSH Options
 # ==================
