@@ -1,10 +1,13 @@
+#= require faye
 #= require angular
 #= require angular-route
 #= require angular-xeditable
 #= require angular-encode-uri
 #= require angular-rails-templates
+#= require angular-faye
 #= require maemon_app
 #= require_tree ./templates
+#= require_tree ./factories
 #= require_tree ./directives
 #= require_tree ./services
 #= require_tree ./controllers

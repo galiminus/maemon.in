@@ -4,6 +4,7 @@ app = angular.module("maemonApp",
     "xeditable"
     "ngRoute"
     "rt.encodeuri"
+    "faye"
   ])
 app.config ['$routeProvider', ($routeProvider) ->
   $routeProvider

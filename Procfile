@@ -1,1 +1,2 @@
-web: puma -b $PUMA_SOCKET
+web: thin start
+

@@ -49,6 +49,8 @@ gem "rails-assets-angular", '~> 1.2.6'
 gem "rails-assets-angular-route"
 gem 'rails-assets-angular-xeditable'
 gem 'rails-assets-angular-encode-uri', '~> 1.0'
+gem 'rails-assets-faye', '~> 1.0.1'
+gem 'rails-assets-angular-faye', '~> 0.2.2'
 gem 'angular-rails-templates'
 
 gem 'high_voltage'
@@ -66,8 +68,10 @@ gem 'capistrano-rails'
 gem 'capistrano3-foreman'
 
 gem 'foreman'
-gem 'puma'
+gem 'thin'
+gem 'faye-rails'
 
 gem 'rails_admin'
 
 gem 'paperclip'
+
