@@ -7,6 +7,6 @@ class UserSerializer < ActiveModel::Serializer
 
 
   def avatar
-    "http://placehold.it/50x50"
+    object.avatar.url
   end
 end
