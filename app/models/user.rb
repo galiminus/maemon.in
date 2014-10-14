@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
 
   has_many :metrics
   has_attached_file :avatar
+  validates_attachment_content_type :avatar, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
 
   has_many :relationships
   has_many :followed, :through => :relationships
@@ -17,7 +18,7 @@ class User < ActiveRecord::Base
       user.uid = auth["uid"]
       user.name = auth["info"]["name"]
       user.email = auth["info"]["email"]
-      user.avatar_url = auth["info"]["image"]
+      user.avatar = auth["info"]["image"]
 
       user.save!
     end
