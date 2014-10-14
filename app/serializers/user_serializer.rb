@@ -5,9 +5,8 @@ class UserSerializer < ActiveModel::Serializer
     object.friendly_id
   end
 
+
   def avatar
-    if object.avatar
-      Cloudinary::Utils.cloudinary_url object.avatar.path, width: 50, height: 50, crop: :fill
-    end
+    "http://placehold.it/50x50"
   end
 end
