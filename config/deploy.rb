@@ -2,7 +2,7 @@
 lock '3.2.1'
 
 set :application, 'maemon'
-set :repo_url, 'git@bitbucket.org:phorque/maemon.git'
+set :repo_url, 'git@bitbucket.org:phorque/maemon.in.git'
 
 # Default branch is :master
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }.call

@@ -1,4 +1,4 @@
-app = angular.module("maytricsApp",
+app = angular.module("maemonApp",
   [
     "templates"
     "xeditable"
