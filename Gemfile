@@ -70,3 +70,5 @@ gem 'capistrano3-foreman'
 
 gem 'foreman'
 gem 'puma'
+
+gem 'rails_admin'

@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  scope subdomain: 'admin' do
+    mount RailsAdmin::Engine => '/', as: 'rails_admin'
+  end
+
   get '/auth/:provider/callback', to: 'users#create'
   get "/signout" => "users#destroy", :as => :signout
 
