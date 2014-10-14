@@ -1,3 +1,3 @@
-app.factory 'Faye', ['$faye', ($faye) ->
+angular.module("maemonApp").factory 'Faye', ['$faye', ($faye) ->
   $faye("/events")
 ]
