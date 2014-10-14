@@ -1,4 +1,4 @@
-angular.module("maytricsApp").service "Relationships",
+angular.module("maemonApp").service "Relationships",
   ["$http", ($http) ->
     get: (userId, id) ->
       $http

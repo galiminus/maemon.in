@@ -1,4 +1,4 @@
-angular.module("maytricsApp").service "Hashtags",
+angular.module("maemonApp").service "Hashtags",
   [ ->
     extract: (metric) ->
       metric.name.match(/#\w+/g);

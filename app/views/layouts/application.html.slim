@@ -1,9 +1,9 @@
 doctype html
-html ng-app="maytricsApp"
+html ng-app="maemonApp"
   head
     meta charset="utf-8"
     meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible"
-    title Maytrics
+    title Maemon
 
     = stylesheet_link_tag "application"
     = javascript_include_tag "application"
@@ -27,17 +27,13 @@ html ng-app="maytricsApp"
                 span.sep
                 | A
                 span.sep
-                | Y
+                | E
                 span.sep
-                | T
+                | M
                 span.sep
-                | R
+                | O
                 span.sep
-                | I
-                span.sep
-                | C
-                span.sep
-                | S
+                | N
         ul.navbar-right.list-inline ng-show="!currentUser"
           li.navbar-btn.google-signin-btn
             a.btn.btn-info.btn-lg.btn-block ng-href="/auth/google_oauth2" target="_self" Sign-in with google
@@ -91,4 +87,4 @@ html ng-app="maytricsApp"
             li
               span.glyphicon.glyphicon-chevron-right
             li
-              a ng-href="https://github.com/phorque/maytrics" API documentation
+              a ng-href="https://github.com/phorque/maemon" API documentation

@@ -13,7 +13,7 @@ development:
   <<: *default
   adapter: postgresql
   encoding: unicode
-  database: maytrics_development
+  database: maemon_development
   password:
 
 production:

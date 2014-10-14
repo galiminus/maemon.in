@@ -1,4 +1,4 @@
-angular.module("maytricsApp").controller 'MainController',
+angular.module("maemonApp").controller 'MainController',
   ["$scope", "Users", "Relationships", "$routeParams", "$location", ($scope, Users, Relationships, $routeParams, $location) ->
     loaded = ->
       conditions = [

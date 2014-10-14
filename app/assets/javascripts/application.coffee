@@ -3,7 +3,7 @@
 #= require angular-xeditable
 #= require angular-encode-uri
 #= require angular-rails-templates
-#= require maytrics_app
+#= require maemon_app
 #= require_tree ./templates
 #= require_tree ./directives
 #= require_tree ./services

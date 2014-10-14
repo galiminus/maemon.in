@@ -1,14 +1,14 @@
 # config valid only for Capistrano 3.1
 lock '3.2.1'
 
-set :application, 'maytrics'
-set :repo_url, 'git@bitbucket.org:phorque/maytrics.git'
+set :application, 'maemon'
+set :repo_url, 'git@bitbucket.org:phorque/maemon.git'
 
 # Default branch is :master
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }.call
 
-set :deploy_to, '/home/maytrics'
-set :foreman_env, "/home/maytrics/.env"
+set :deploy_to, '/home/maemon'
+set :foreman_env, "/home/maemon/.env"
 set :use_sudo, false
 
 # Default value for :scm is :git
@@ -40,7 +40,7 @@ namespace :deploy do
   desc 'Restart application'
   task :restart do
     on roles(:app), in: :sequence, wait: 5 do
-      execute :sudo, :service, "maytrics-web-1", :restart
+      execute :sudo, :service, "maemon-web-1", :restart
     end
   end
 

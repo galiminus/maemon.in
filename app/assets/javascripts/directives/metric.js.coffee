@@ -1,4 +1,4 @@
-angular.module("maytricsApp").directive "metric", ["$parse", "Hashtags", ($parse, Hashtags) ->
+angular.module("maemonApp").directive "metric", ["$parse", "Hashtags", ($parse, Hashtags) ->
   restrict: "E"
   templateUrl: "metric.html"
   link: (scope, element, attributes) ->

@@ -1,4 +1,4 @@
-angular.module("maytricsApp").controller 'MetricsController',
+angular.module("maemonApp").controller 'MetricsController',
   ["$scope", "$routeParams", "$location", "Metrics", "Users",
     ($scope, $routeParams, $location, Metrics, Users, $filter) ->
       $scope.user =

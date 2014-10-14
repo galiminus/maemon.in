@@ -1,4 +1,4 @@
-angular.module("maytricsApp").service "Metrics",
+angular.module("maemonApp").service "Metrics",
   ["$http", ($http) ->
     all: (userId, params) ->
       $http
