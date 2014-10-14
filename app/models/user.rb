@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   friendly_id :name, use: [:slugged, :history]
 
   has_many :metrics
-#  has_attachment  :avatar, accept: [:jpg, :png, :gif]
+  has_attached_file :avatar
 
   has_many :relationships
   has_many :followed, :through => :relationships
@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
       user.uid = auth["uid"]
       user.name = auth["info"]["name"]
       user.email = auth["info"]["email"]
-#      user.avatar_url = auth["info"]["image"]
+      user.avatar_url = auth["info"]["image"]
 
       user.save!
     end

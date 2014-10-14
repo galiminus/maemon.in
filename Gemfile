@@ -69,3 +69,5 @@ gem 'foreman'
 gem 'puma'
 
 gem 'rails_admin'
+
+gem 'paperclip'
