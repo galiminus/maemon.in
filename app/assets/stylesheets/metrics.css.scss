@@ -1,10 +1,11 @@
-.no-metrics-message {
-    font-size: 2em;
-    background: #637882;
-    color: #eee;
-    padding: 20px;
-    margin-top: 15%;
-    box-shadow: 1px 1px 2px #333;
+.metrics-infos {
+    p {
+        font-size: 200px;
+        color: #637882;
+        position: absolute;
+        top: 50%;
+        margin-top: -100px;
+    }
 }
 
 .btn.load-more, .page-information {

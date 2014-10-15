@@ -211,12 +211,12 @@ GEM
       bundler (>= 1.3.0, < 2.0)
       railties (= 4.1.5)
       sprockets-rails (~> 2.0)
-    rails-assets-angular (1.2.24)
+    rails-assets-angular (1.3.0)
     rails-assets-angular-encode-uri (1.0.0)
       rails-assets-angular
     rails-assets-angular-faye (0.2.2)
-    rails-assets-angular-route (1.2.24)
-      rails-assets-angular (= 1.2.24)
+    rails-assets-angular-route (1.3.0)
+      rails-assets-angular (= 1.3.0)
     rails-assets-angular-xeditable (0.1.8)
       rails-assets-angular (~> 1.0)
     rails-assets-faye (1.0.1)
@@ -339,7 +339,7 @@ DEPENDENCIES
   pry
   pundit (~> 0.3.0)
   rails (= 4.1.5)
-  rails-assets-angular (~> 1.2.6)
+  rails-assets-angular (~> 1.3.0)
   rails-assets-angular-encode-uri (~> 1.0)
   rails-assets-angular-faye (~> 0.2.2)
   rails-assets-angular-route
