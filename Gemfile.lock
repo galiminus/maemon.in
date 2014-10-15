@@ -36,6 +36,11 @@ GEM
       sprockets
       tilt
     arel (5.0.1.20140414130214)
+    aws-sdk (1.55.0)
+      aws-sdk-v1 (= 1.55.0)
+    aws-sdk-v1 (1.55.0)
+      json (~> 1.4)
+      nokogiri (>= 1.4.4)
     better_errors (2.0.0)
       coderay (>= 1.0.0)
       erubis (>= 2.6.6)
@@ -311,6 +316,7 @@ PLATFORMS
 DEPENDENCIES
   active_model_serializers (~> 0.9.0)
   angular-rails-templates
+  aws-sdk
   better_errors
   bootstrap-sass
   capistrano

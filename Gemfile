@@ -74,4 +74,5 @@ gem 'faye-rails'
 gem 'rails_admin'
 
 gem 'paperclip'
+gem 'aws-sdk'
 
