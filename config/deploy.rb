@@ -46,6 +46,14 @@ namespace :deploy do
 
   after :publishing, :restart
 
+  after :restart, :import do
+    on roles(:web) do
+      within release_path do
+        execute :rake, :environment, "elasticsearch:import:model", "CLASS='User'"
+        execute :rake, :environment, "elasticsearch:import:model", "CLASS='Metric'"
+      end
+    end
+  end
   after :restart, :clear_cache do
     on roles(:web), in: :groups, limit: 3, wait: 10 do
       # Here we can do anything such as:
