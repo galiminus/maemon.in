@@ -1,0 +1,4 @@
+#!/bin/sh
+
+sudo foreman export --app maemon upstart /etc/init
+sudo service maemon-web restart
