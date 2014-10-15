@@ -29,6 +29,10 @@ group :development, :test do
   gem 'better_errors'
 end
 
+group :production do
+  gem "rails_12factor"
+end
+
 # auth using google
 gem 'omniauth-google-oauth2', '~> 0.2.5'
 
@@ -75,4 +79,3 @@ gem 'rails_admin'
 
 gem 'paperclip'
 
-gem "rails_12factor"
