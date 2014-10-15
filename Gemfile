@@ -75,3 +75,4 @@ gem 'rails_admin'
 
 gem 'paperclip'
 
+gem "rails_12factor"
