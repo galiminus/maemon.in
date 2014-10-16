@@ -1,6 +1,8 @@
 angular.module("maemonApp").service "Hashtags",
   [ ->
     extract: (metric) ->
+      return unless metric.name
+
       metric.name.match(/#\w+/g);
 
     getColor: (hashtag) ->

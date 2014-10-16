@@ -1,4 +1,4 @@
-angular.module("maemonApp").directive "metric", ["$parse", "Hashtags", ($parse, Hashtags) ->
+angular.module("maemonApp").directive "metric", ["$parse", "Hashtags", "$timeout", ($parse, Hashtags, $timeout) ->
   restrict: "E"
   templateUrl: "metric.html"
   link: (scope, element, attributes) ->
@@ -17,23 +17,41 @@ angular.module("maemonApp").directive "metric", ["$parse", "Hashtags", ($parse, 
       return unless metric
 
       scope.metric = metric
+      scope.creatable = !scope.metric.id && !scope.inCreate
 
       updateColor()
       scope.resetValue()
     , true
 
+    scope.startCreate = ->
+      scope.inCreate = true
+      scope.creatable = false
+      scope.startEdit()
+
+    scope.startEdit = ->
+      scope.inEdit = true
+      $timeout ->
+        element.find("input")[0].focus()
+
+    scope.stopEdit = ->
+      scope.inEdit = false unless scope.inCreate
+
+    scope.saveEdit = ->
+      scope.onMetricUpdate(scope)
+      scope.stopEdit()
+
     scope.updateTmpValue = (value) ->
-      if scope.inEdit
+      if scope.inSelectValue
         scope.tmpValue = value
 
-    scope.updateMetric = (metric) ->
-      scope.onMetricUpdate(scope)
-
     scope.setValue = (value) ->
-      if scope.inEdit
+      if scope.inSelectValue
         scope.metric.value = value
-        scope.onMetricUpdate(scope)
-        scope.inEdit = false
+        scope.inSelectValue = false
+
+        if scope.metric.id
+          scope.onMetricUpdate(scope)
+
 
     scope.deleteMetric = ->
       scope.onMetricDelete(scope)

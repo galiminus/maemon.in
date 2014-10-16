@@ -6,7 +6,7 @@ angular.module("maemonApp").controller 'MetricsController',
       $scope.loadUser $scope.user.id
 
       $scope.loadMetricsPage = (page) ->
-        $scope.metricsPages ||= []
+        $scope.metricsPages ||= [{metrics: []}]
         search =
           query: $scope.query
           page: page
@@ -17,27 +17,31 @@ angular.module("maemonApp").controller 'MetricsController',
 
           if page <= $scope.totalPages
             $scope.metricsPages[page - 1] = response.data
+          $scope.create()
 
       $scope.query = $routeParams.search
       $scope.$watch "query", (-> $scope.loadMetricsPage 1), true
 
       $scope.create = ->
         metric =
-          name: "New metric"
-          value: 5
-
+          name: ""
+          value: 10
         $scope.metricsPages[0].metrics.unshift metric
-        Metrics.create($scope.currentUser.id, metric).then (response) ->
-          metric.id = response.data.metric.id
 
       $scope.delete = (page, metric) ->
+        page.metrics =
+          (element for element in page.metrics when element != metric)
         Metrics.delete($scope.currentUser.id, metric.id).then ->
-          page.metrics =
-            (element for element in page.metrics when element != metric)
 
       $scope.update = (metricsPage, metric) ->
         if (metric.name == "")
           $scope.delete metricsPage, metric
         else
-          Metrics.update($scope.currentUser.id, metric.id, metric)
+          if metric.id
+            Metrics.update($scope.currentUser.id, metric.id, metric)
+          else
+            Metrics.create($scope.currentUser.id, metric).then (response) ->
+              metric.id = response.data.metric.id
+            $scope.create()
+
 ]
