@@ -4,7 +4,7 @@
   .panel-heading.editable ng-show="editable" ng-style="style"
     form name="metricForm"
       .panel-title
-        b.metric-name ng-show="editable" ng-hide="inEdit" ng-click="startEdit()"
+        h4.metric-name ng-show="editable" ng-hide="inEdit" ng-click="startEdit()"
           | {{metric.name}}
         input ng-show="inEdit" ng-model="metric.name" type="text" ng-blur="stopEdit()" placeholder="My new metric" name="name" ng-required="true"
       button.btn.save ng-click="saveEdit()" ng-show="inEdit" ng-disabled="metricForm.$invalid"

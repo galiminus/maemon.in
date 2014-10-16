@@ -10,14 +10,15 @@ angular.module("maemonApp").controller 'MetricsController',
         search =
           query: $scope.query
           page: page
-          per: 15
+          per: if page == 1 then 14 else 15
         Metrics.all($routeParams.userId, search).then (response) ->
           $scope.totalPages = response.data.meta.pagination.total_pages
           $scope.totalCount = response.data.meta.pagination.total_count
 
           if page <= $scope.totalPages
             $scope.metricsPages[page - 1] = response.data
-          $scope.create()
+          if page == 1
+            $scope.create()
 
       $scope.query = $routeParams.search
       $scope.$watch "query", (-> $scope.loadMetricsPage 1), true
