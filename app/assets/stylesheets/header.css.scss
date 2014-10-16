@@ -16,15 +16,18 @@
                 display: inline-block;
             }
         }
-        form.editable-wrap input {
-            border: none;
-            color: #eee;
-            background-color: #333;
-            padding: 0px;
-            box-shadow: none;
-            font-size: 170%;
-            vertical-align: top;
-            height: 64px;
+        form {
+            display: inline;
+            input {
+                border: none;
+                color: #eee;
+                background-color: #333;
+                padding: 0px;
+                box-shadow: none;
+                font-size: 170%;
+                vertical-align: top;
+                height: 64px;
+            }
         }
         &.user {
             padding: 0px 15px;

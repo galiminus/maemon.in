@@ -47,7 +47,6 @@ gem 'active_model_serializers', "~> 0.9.0"
 gem "bootstrap-sass"
 gem "rails-assets-angular", '~> 1.3.0'
 gem "rails-assets-angular-route"
-gem 'rails-assets-angular-xeditable'
 gem 'rails-assets-angular-encode-uri', '~> 1.0'
 gem 'rails-assets-faye', '~> 1.0.1'
 gem 'rails-assets-angular-faye', '~> 0.2.2'

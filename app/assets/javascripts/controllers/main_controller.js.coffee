@@ -48,4 +48,10 @@ angular.module("maemonApp").controller 'MainController',
       Users.all(search).then (response) ->
         $scope.users = response.data.users
     , true
+
+    $scope.editUserName = ->
+      $scope.inEditUserName = true
+
+    $scope.stopEditUserName = ->
+      $scope.inEditUserName = false
 ]

@@ -21,5 +21,5 @@
       li ng-repeat="value in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]" ng-class="{selected: value <= tmpValue}" ng-mouseover="updateTmpValue(value)" ng-click="setValue(value);"
         .bar
           | &nbsp;
-    span.metric.pull-right ng-class="{'in-select-value': inSelectValue}"
+    span.metric.pull-right ng-class="{'in-select-value': inSelectValue && editable}"
       | {{tmpValue}}

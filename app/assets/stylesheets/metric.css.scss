@@ -9,14 +9,9 @@
         border-bottom-style: solid;
         border-bottom-color: #666;
         min-height: 58px;
-
-        &.editable {
-            cursor: pointer;
-        }
         .panel-title {
             max-width: 290px;
             display: inline-block;
-            cursor: text;
             .metric-name {
                 font-size: 24px;
                 line-height: 34px;
@@ -73,7 +68,6 @@
         ul.metric-value {
             padding-top: 8px;
             margin-bottom: 0px;
-            cursor: pointer;
             margin-left: 0px;
             li {
                 padding: 0 3px 0 3px;
@@ -133,13 +127,20 @@
         }
     }
     &.editable {
-        .panel-title {
-            width: 250px;
-            .metric-name {
+        .panel-heading {
+            cursor: pointer;
+            .panel-title {
+                width: 250px;
+                cursor: text;
+            }
+            input {
+                width: 250px;
             }
         }
-        input {
-            width: 250px;
+        .panel-body {
+            ul.metric-value {
+                cursor: pointer;
+            }
         }
     }
 }

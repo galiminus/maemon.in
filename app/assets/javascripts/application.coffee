@@ -1,7 +1,6 @@
 #= require faye
 #= require angular
 #= require angular-route
-#= require angular-xeditable
 #= require angular-encode-uri
 #= require angular-rails-templates
 #= require angular-faye

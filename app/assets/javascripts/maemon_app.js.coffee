@@ -1,7 +1,6 @@
 app = angular.module("maemonApp",
   [
     "templates"
-    "xeditable"
     "ngRoute"
     "rt.encodeuri"
     "faye"

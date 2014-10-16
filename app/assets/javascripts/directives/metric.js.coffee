@@ -41,17 +41,20 @@ angular.module("maemonApp").directive "metric", ["$parse", "Hashtags", "$timeout
       scope.stopEdit()
 
     scope.updateTmpValue = (value) ->
+      return unless scope.editable
+
       if scope.inSelectValue
         scope.tmpValue = value
 
     scope.setValue = (value) ->
+      return unless scope.editable
+
       if scope.inSelectValue
         scope.metric.value = value
         scope.inSelectValue = false
 
         if scope.metric.id
           scope.onMetricUpdate(scope)
-
 
     scope.deleteMetric = ->
       scope.onMetricDelete(scope)
