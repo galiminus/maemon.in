@@ -2,10 +2,12 @@
     border: none;
     box-shadow: 0px 1px 2px #000;
     .navbar-brand {
-        span, .editable-link {
+        h2, span, .editable-link {
             color: #eee;
             font-size: 170%;
             border-color: #bbb;
+            margin: 0;
+            display: inline;
         }
         &.logo {
             .sep {
@@ -36,7 +38,7 @@
                 margin-top: 8px;
                 float: left;
             }
-            span {
+            h2 {
                 line-height: 64px;
             }
         }

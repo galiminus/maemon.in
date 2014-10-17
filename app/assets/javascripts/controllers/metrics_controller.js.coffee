@@ -26,7 +26,7 @@ angular.module("maemonApp").controller 'MetricsController',
       $scope.create = ->
         metric =
           name: ""
-          value: 10
+          value: 0
         $scope.metricsPages[0].metrics.unshift metric
 
       $scope.delete = (page, metric) ->
@@ -43,6 +43,5 @@ angular.module("maemonApp").controller 'MetricsController',
           else
             Metrics.create($scope.currentUser.id, metric).then (response) ->
               metric.id = response.data.metric.id
-            $scope.create()
-
+              $scope.create()
 ]

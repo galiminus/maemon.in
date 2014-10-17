@@ -13,17 +13,12 @@ html ng-app="maemonApp"
     .navbar.navbar-default.navbar-fixed-top.navbar-inverse
       .container
         .navbar-header
-          .navbar-brand.user ng-show="!isMe()"
-            span
-              img.img-circle ng-src="{{user.avatar}}"
-            span
-              |{{user.name}}
-          .navbar-brand.user ng-show="isMe()"
+          .navbar-brand.user editable="isMe()" edit-input="input" edit-element="h2"
             img.img-circle ng-src="{{user.avatar}}"
-            span onaftersave="updateUser(user)" ng-click="editUserName()" ng-hide="inEditUserName"
-              |{{user.name}}
-            form ng-show="inEditUserName" name="editUserNameForm"
-              input ng-model="user.name" type="text" ng-blur="stopEditUserName()" name="name"
+            form name="editUserNameForm"
+                h2 onaftersave="updateUser(user)"
+                  |{{user.name}}
+                input ng-model="user.name" type="text" name="name"
           - if on_home?
             .navbar-brand.logo ng-hide="user"
               span
