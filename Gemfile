@@ -30,6 +30,7 @@ group :development, :test do
 end
 
 # auth using google
+gem 'omniauth', github: 'intridea/omniauth'
 gem 'omniauth-google-oauth2', '~> 0.2.5'
 
 # slim templates
