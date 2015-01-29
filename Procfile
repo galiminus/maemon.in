@@ -1,2 +1,2 @@
-web: thin start
+web: thin start -p $PORT
 

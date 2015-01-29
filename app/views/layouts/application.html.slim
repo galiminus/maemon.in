@@ -10,7 +10,7 @@ html ng-app="maemonApp"
     = stylesheet_link_tag "application"
     = javascript_include_tag "application"
   body ng-controller="MainController"
-    .navbar.navbar-default.navbar-fixed-top.navbar-inverse
+    .navbar.navbar-default.navbar-fixed-top.navbar-inverse ng-controller="HeaderController"
       .container
         .navbar-header
           .navbar-brand.user editable="isMe()" edit-input="input" edit-element="h2"
@@ -19,20 +19,6 @@ html ng-app="maemonApp"
                 h2 onaftersave="updateUser(user)"
                   |{{user.name}}
                 input ng-model="user.name" type="text" name="name"
-          - if on_home?
-            .navbar-brand.logo ng-hide="user"
-              span
-                | M
-                span.sep
-                | A
-                span.sep
-                | E
-                span.sep
-                | M
-                span.sep
-                | O
-                span.sep
-                | N
         ul.navbar-right.list-inline ng-show="!currentUser"
           li.navbar-btn.google-signin-btn
             a.btn.btn-info.btn-lg.btn-block ng-href="/auth/google_oauth2" target="_self" Sign-in with google

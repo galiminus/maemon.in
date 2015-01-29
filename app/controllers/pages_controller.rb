@@ -1,6 +1,8 @@
 class PagesController < ApplicationController
   include HighVoltage::StaticPage
 
+  layout "home"
+
   before_filter :redirect_to_user_page_from_home
 
   protected

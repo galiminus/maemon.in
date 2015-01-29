@@ -23,5 +23,5 @@
 
 .container
   .row.row-centered.metrics-infos
-    p.col-md-6.col-md-offset-3.text-center ng-show="totalPages == 0"
+    p.col-md-6.col-md-offset-3.text-center ng-show="totalPages == 0 && !isMe()"
       span.glyphicon.glyphicon-cloud
